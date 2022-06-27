@@ -4,9 +4,9 @@ export default defineConfig({
   shopify: {
     defaultCountryCode: 'US',
     defaultLanguageCode: 'EN',
-    storeDomain: 'birgittajadenfelt.myshopify.com',
-    storefrontToken: '7b88ccba13849e32088199fe27f5e2c2',
-    storefrontApiVersion: '2022-07',
+    storeDomain: import.meta.env.PUBLIC_STORE_DOMAIN,
+    storefrontToken: Oxygen.env.STOREFRONT_TOKEN,
+    storefrontApiVersion: import.meta.env.PUBLIC_STOREFRONT_API_VERSION
   },
   session: CookieSessionStorage('__session', {
     path: '/',

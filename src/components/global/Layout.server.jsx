@@ -55,7 +55,7 @@ export function Layout({children}) {
           </a>
         </div>
         <Header title={shopName} menu={headerMenu} />
-        <main role="main" id="mainContent" className="flex-grow bg-gray-light">
+        <main role="main" id="mainContent" className="flex-grow bg-gray-light px-6 md:px-24 min-h-screen">
           {children}
         </main>
       </div>

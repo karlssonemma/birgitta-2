@@ -36,7 +36,7 @@ const FeaturedSection = ({collection, products}) => {
     return(
       <article className="w-screen relative left-[50%] translate-x-[-50%] py-20 px-6" id="featuredSection">
         <div className={`flex justify-between py-6 max-w-5xl m-auto overflow-hidden opacity-0 translate-y-[30px] ${inView && "animate-[fadeUp_0.7s_ease-in-out_forwards]"}`}>
-          <h2 className="text-3xl font-serif">{collection.description}</h2>
+          <h2 className="text-3xl text-black font-serif">{collection.description}</h2>
           <div>
             <ArrowLink to="/collections/main" direction="right" label="view all items" />
           </div>
@@ -53,7 +53,7 @@ const FeaturedSection = ({collection, products}) => {
                       alt={product.featuredImage.altText}
                     />
                     <div className="my-6 text-center tracking-wide">
-                      <p className="font-serif text-lg pb-2  group-hover:underline">{product.title}</p>
+                      <p className="font-serif text-lg pb-2  group-hover:underline text-black">{product.title}</p>
                       <MoneyPrice money={product.priceRange.maxVariantPrice} />
                     </div>
                   </Link>

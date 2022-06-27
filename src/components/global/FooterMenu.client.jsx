@@ -7,19 +7,16 @@ import {Link} from '@shopify/hydrogen';
  */
 export function FooterMenu({menu}) {
   
-
   return (
-    <>
+    <section className="w-max flex justify-between items-center">
+
       {(menu?.items || []).map((item) => {
-        console.log("FOOOTER ITEM",item)
         return(
-        <section key={item.id} className="w-max flex justify-between items-center">
           <Link key={item.id} target={item.target} to={item.url} className="text-xs uppercase text-gray-dark hover:underline mx-4 tracking-wider">
             {item.title}
           </Link>
-        </section>
         )
-      })}{' '}
-    </>
+      })}
+    </section>
   );
 }

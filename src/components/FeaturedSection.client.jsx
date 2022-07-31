@@ -1,10 +1,7 @@
 import {  
-    flattenConnection,
     Link,
     Image,
-    ProductPrice
 } from "@shopify/hydrogen/client";
-import gql from "graphql-tag";
 
 import { useState, useEffect } from "react";
 
@@ -51,6 +48,8 @@ const FeaturedSection = ({collection, products}) => {
                       data={product.featuredImage}
                       className="h-[400px] w-full object-cover group-hover:brightness-90 transition-all"
                       alt={product.featuredImage.altText}
+                      width={300}
+                      height={300}
                     />
                     <div className="my-6 text-center tracking-wide">
                       <p className="font-serif text-lg pb-2  group-hover:underline text-black">{product.title}</p>

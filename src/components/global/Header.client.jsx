@@ -120,8 +120,8 @@ function DesktopHeader({countryCode, isHome, menu, openCart, title}) {
             let delay = i + 5;
             let animation = `animate-[slideUp_0.5s_ease-in-out_0.${delay}s_forwards]`
             return(
-            <li className="overflow-hidden">
-              <NavLink key={item.id} to={item.to} target={item.target} classes={animation}>
+            <li className="overflow-hidden" key={item.id}>
+              <NavLink to={item.to} target={item.target} classes={animation}>
                 {item.title}
               </NavLink>
             </li>

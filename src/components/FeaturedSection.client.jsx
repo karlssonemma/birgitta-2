@@ -47,7 +47,8 @@ const FeaturedSection = ({collection, products}) => {
                     <Image 
                       data={product.featuredImage}
                       className="h-[400px] w-full object-cover group-hover:brightness-90 transition-all"
-                      alt={product.featuredImage.altText}
+                      // alt={product.featuredImage.altText}
+                      alt="bild"
                       width={300}
                       height={300}
                     />

@@ -1,5 +1,5 @@
 import {Layout} from '~/components/index.server';
-import { Image, RawHtml, useShopQuery, gql } from "@shopify/hydrogen";
+import { Image, useShopQuery, gql } from "@shopify/hydrogen";
 import { Suspense } from 'react';
 
 

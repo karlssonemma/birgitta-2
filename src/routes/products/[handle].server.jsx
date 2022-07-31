@@ -8,7 +8,6 @@ import {
   useRouteParams,
   useServerAnalytics,
   useShopQuery,
-  ProductProvider,
   flattenConnection,
   Image,
   useProductOptions,

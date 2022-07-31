@@ -81,13 +81,13 @@ export default function Homepage() {
       <Suspense>
         {/* <SeoForHomepage /> */}
         <div className='relative min-h-screen'>
-          <Image 
+          {/* <Image 
             data={page.image.reference.image}
             width={800}
             height={800}
             className='w-screen relative z-20 object-cover object-center -top-40'
             style={{left: 'calc(-50vw + 50%)', maxWidth: 'inherit', maxHeight: 'calc(100vh + 40px)'}}
-          />
+          /> */}
           
           <div className='absolute w-full md:w-1/3 z-30 md:top-40 md:right-32'>
             <h1 className='text-5xl mb-4 font-serif tracking-wider opacity-0 animate-[fadeUp_0.5s_ease-in-out_1.2s_forwards]'>{page.title.value}</h1>

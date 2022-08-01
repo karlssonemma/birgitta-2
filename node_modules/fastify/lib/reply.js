@@ -16,7 +16,11 @@ const {
   kReplyHasStatusCode,
   kReplyIsRunningOnErrorHook,
   kReplyNextErrorHandler,
-  kDisableRequestLogging
+  kDisableRequestLogging,
+  kSchemaResponse,
+  kReplySerializeWeakMap,
+  kSchemaController,
+  kOptions
 } = require('./symbols.js')
 const { hookRunner, hookIterator, onSendHookRunner } = require('./hooks')
 
@@ -38,7 +42,8 @@ const {
   FST_ERR_SEND_INSIDE_ONERR,
   FST_ERR_BAD_STATUS_CODE,
   FST_ERR_BAD_TRAILER_NAME,
-  FST_ERR_BAD_TRAILER_VALUE
+  FST_ERR_BAD_TRAILER_VALUE,
+  FST_ERR_MISSING_SERIALIZATION_FN
 } = require('./errors')
 const warning = require('./warnings')
 
@@ -203,10 +208,8 @@ Reply.prototype.getHeaders = function () {
 
 Reply.prototype.hasHeader = function (key) {
   key = key.toLowerCase()
-  if (this[kReplyHeaders][key] !== undefined) {
-    return true
-  }
-  return this.raw.hasHeader(key)
+
+  return this[kReplyHeaders][key] !== undefined || this.raw.hasHeader(key)
 }
 
 Reply.prototype.removeHeader = function (key) {
@@ -216,25 +219,24 @@ Reply.prototype.removeHeader = function (key) {
   return this
 }
 
-Reply.prototype.header = function (key, value) {
-  const _key = key.toLowerCase()
+Reply.prototype.header = function (key, value = '') {
+  key = key.toLowerCase()
 
-  // default the value to ''
-  value = value === undefined ? '' : value
-
-  if (this[kReplyHeaders][_key] && _key === 'set-cookie') {
+  if (this[kReplyHeaders][key] && key === 'set-cookie') {
     // https://tools.ietf.org/html/rfc7230#section-3.2.2
-    if (typeof this[kReplyHeaders][_key] === 'string') {
-      this[kReplyHeaders][_key] = [this[kReplyHeaders][_key]]
+    if (typeof this[kReplyHeaders][key] === 'string') {
+      this[kReplyHeaders][key] = [this[kReplyHeaders][key]]
     }
+
     if (Array.isArray(value)) {
-      Array.prototype.push.apply(this[kReplyHeaders][_key], value)
+      this[kReplyHeaders][key].push(...value)
     } else {
-      this[kReplyHeaders][_key].push(value)
+      this[kReplyHeaders][key].push(value)
     }
   } else {
-    this[kReplyHeaders][_key] = value
+    this[kReplyHeaders][key] = value
   }
+
   return this
 }
 
@@ -245,6 +247,7 @@ Reply.prototype.headers = function (headers) {
     const key = keys[i]
     this.header(key, headers[key])
   }
+
   return this
 }
 
@@ -279,8 +282,7 @@ Reply.prototype.trailer = function (key, fn) {
 }
 
 Reply.prototype.hasTrailer = function (key) {
-  if (this[kReplyTrailers] === null) return false
-  return this[kReplyTrailers][key.toLowerCase()] !== undefined
+  return this[kReplyTrailers]?.[key.toLowerCase()] !== undefined
 }
 
 Reply.prototype.removeTrailer = function (key) {
@@ -301,6 +303,79 @@ Reply.prototype.code = function (code) {
 }
 
 Reply.prototype.status = Reply.prototype.code
+
+Reply.prototype.getSerializationFunction = function (schemaOrStatus) {
+  let serialize
+
+  if (typeof schemaOrStatus === 'string' || typeof schemaOrStatus === 'number') {
+    serialize = this.context[kSchemaResponse]?.[schemaOrStatus]
+  } else if (typeof schemaOrStatus === 'object') {
+    serialize = this.context[kReplySerializeWeakMap]?.get(schemaOrStatus)
+  }
+
+  return serialize
+}
+
+Reply.prototype.compileSerializationSchema = function (schema, httpStatus = null) {
+  const { request } = this
+  const { method, url } = request
+
+  // Check if serialize function already compiled
+  if (this.context[kReplySerializeWeakMap]?.has(schema)) {
+    return this.context[kReplySerializeWeakMap].get(schema)
+  }
+
+  const serializerCompiler = this.context.serializerCompiler ||
+   this.server[kSchemaController].serializerCompiler ||
+  (
+    // We compile the schemas if no custom serializerCompiler is provided
+    // nor set
+    this.server[kSchemaController].setupSerializer(this.server[kOptions]) ||
+    this.server[kSchemaController].serializerCompiler
+  )
+
+  const serializeFn = serializerCompiler({
+    schema,
+    method,
+    url,
+    httpStatus
+  })
+
+  // We create a WeakMap to compile the schema only once
+  // Its done leazily to avoid add overhead by creating the WeakMap
+  // if it is not used
+  // TODO: Explore a central cache for all the schemas shared across
+  // encapsulated contexts
+  if (this.context[kReplySerializeWeakMap] == null) {
+    this.context[kReplySerializeWeakMap] = new WeakMap()
+  }
+
+  this.context[kReplySerializeWeakMap].set(schema, serializeFn)
+
+  return serializeFn
+}
+
+Reply.prototype.serializeInput = function (input, schema, httpStatus) {
+  let serialize
+  httpStatus = typeof schema === 'string' || typeof schema === 'number'
+    ? schema
+    : httpStatus
+
+  if (httpStatus != null) {
+    serialize = this.context[kSchemaResponse]?.[httpStatus]
+
+    if (serialize == null) throw new FST_ERR_MISSING_SERIALIZATION_FN(httpStatus)
+  } else {
+    // Check if serialize function already compiled
+    if (this.context[kReplySerializeWeakMap]?.has(schema)) {
+      serialize = this.context[kReplySerializeWeakMap].get(schema)
+    } else {
+      serialize = this.compileSerializationSchema(schema, httpStatus)
+    }
+  }
+
+  return serialize(input)
+}
 
 Reply.prototype.serialize = function (payload) {
   if (this[kReplySerializer] !== null) {
@@ -330,8 +405,7 @@ Reply.prototype.redirect = function (code, url) {
     code = this[kReplyHasStatusCode] ? this.raw.statusCode : 302
   }
 
-  this.header('location', url).code(code).send()
-  return this
+  return this.header('location', url).code(code).send()
 }
 
 Reply.prototype.callNotFound = function () {
@@ -485,9 +559,12 @@ function onSendEnd (reply, payload) {
   }
 
   if (reply[kReplyTrailers] === null) {
-    if (!reply[kReplyHeaders]['content-length']) {
-      reply[kReplyHeaders]['content-length'] = '' + Buffer.byteLength(payload)
-    } else if (req.raw.method !== 'HEAD' && reply[kReplyHeaders]['content-length'] !== Buffer.byteLength(payload)) {
+    const contentLength = reply[kReplyHeaders]['content-length']
+    if (!contentLength ||
+        (req.raw.method !== 'HEAD' &&
+         parseInt(contentLength, 10) !== Buffer.byteLength(payload)
+        )
+    ) {
       reply[kReplyHeaders]['content-length'] = '' + Buffer.byteLength(payload)
     }
   }

@@ -143,7 +143,7 @@ route-level `request` object.
    curl localhost:8080/auth?username=admin&password=Password123!
    ```
    And it should return back `logged in!`
-6. But wait theres more! The generic interfaces are also available inside route
+6. But wait there's more! The generic interfaces are also available inside route
    level hook methods. Modify the previous route by adding a `preValidation`
    hook:
    ```typescript
@@ -199,17 +199,18 @@ Below is how to setup schema validation using vanilla `typebox` and
 #### typebox
 
 A useful library for building types and a schema at once is
-[typebox](https://www.npmjs.com/package/@sinclair/typebox). With typebox you
-define your schema within your code and use them directly as types or schemas as
-you need them.
+[typebox](https://www.npmjs.com/package/@sinclair/typebox) along with 
+[fastify-type-provider-typebox](https://github.com/fastify/fastify-type-provider-typebox).
+With typebox you define your schema within your code and use them
+directly as types or schemas as you need them.
 
 When you want to use it for validation of some payload in a fastify route you
 can do it as follows:
 
-1. Install `typebox` in your project.
+1. Install `typebox` and `fastify-type-provider-typebox` in your project.
 
     ```bash
-    npm i @sinclair/typebox
+    npm i @sinclair/typebox @fastify/type-provider-typebox
     ```
 
 2. Define the schema you need with `Type` and create the respective type  with
@@ -218,40 +219,52 @@ can do it as follows:
     ```typescript
     import { Static, Type } from '@sinclair/typebox'
 
-    const User = Type.Object({
+    export const User = Type.Object({
       name: Type.String(),
-      mail: Type.Optional(Type.String({ format: "email" })),
-    });
-    type UserType = Static<typeof User>;
+      mail: Type.Optional(Type.String({ format: 'email' })),
+    })
+
+    export type UserType = Static<typeof User>
     ```
 
 3. Use the defined type and schema during the definition of your route
 
     ```typescript
-    const app = fastify();
+    import Fastify from 'fastify'
+    import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
+    // ...
 
-    app.post<{ Body: UserType; Reply: UserType }>(
-      "/",
+    const fastify = Fastify().withTypeProvider<TypeBoxTypeProvider>()
+
+    app.post<{ Body: UserType, Reply: UserType }>(
+      '/',
       {
         schema: {
           body: User,
           response: {
-            200: User,
+            200: User
           },
         },
       },
       (request, reply) => {
-        const { body: user } = request;
-        /* user has type
-        * const user: StaticProperties<{
-        *  name: TString;
-        *  mail: TOptional<TString>;
-        * }>
-        */
-        //...
-        reply.status(200).send(user);
+        // The `name` and `mail` types are automatically inferred
+        const { name, mail } = request.body;
+        reply.status(200).send({ name, mail });
       }
-    );
+    )
+    ```
+
+     **Note** For Ajv version 7 and above is required to use the `ajvTypeBoxPlugin`:
+
+    ```typescript
+    import Fastify from 'fastify'
+    import { ajvTypeBoxPlugin, TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
+
+    const fastify = Fastify({
+      ajv: {
+        plugins: [ajvTypeBoxPlugin]
+      }
+    }).withTypeProvider<TypeBoxTypeProvider>()
     ```
 
 #### Schemas in JSON Files
@@ -390,7 +403,7 @@ definitions.
 #### json-schema-to-ts
 
 If you do not want to generate types from your schemas, but want to use them
-diretly from your code, you can use the package
+directly from your code, you can use the package
 [json-schema-to-ts](https://www.npmjs.com/package/json-schema-to-ts).
 
 You can install it as dev-dependency.
@@ -647,6 +660,30 @@ However, there are a couple of suggestions to help improve this experience:
 - Use a module such as [depcheck](https://www.npmjs.com/package/depcheck) or
   [npm-check](https://www.npmjs.com/package/npm-check) to verify plugin
   dependencies are being used somewhere in your project.
+
+Note that using `require` will not load the type definitions properly and may
+cause type errors.
+TypeScript can only identify the types that are directly imported into code,
+which means that you can use require inline with import on top. For example:
+
+```typescript
+import 'plugin' // here will trigger the type augmentation.
+
+fastify.register(require('plugin'))
+```
+
+```typescript
+import plugin from 'plugin' //  here will trigger the type augmentation.
+
+fastify.register(plugin)
+```
+
+Or even explicit config on tsconfig
+```jsonc
+{
+  "types": ["plugin"] // we force TypeScript to import the types
+}
+```
 
 ## Code Completion In Vanilla JavaScript
 
@@ -1359,17 +1396,17 @@ A method for checking the existence of a type parser of a certain content type
 
 ##### fastify.FastifyError
 
-[src](https://github.com/fastify/fastify/blob/main/types/error.d.ts#L17)
+[src](https://github.com/fastify/fastify/blob/main/fastify.d.ts#L179)
 
 FastifyError is a custom error object that includes status code and validation
 results.
 
 It extends the Node.js `Error` type, and adds two additional, optional
-properties: `statusCode: number` and `validation: ValiationResult[]`.
+properties: `statusCode: number` and `validation: ValidationResult[]`.
 
 ##### fastify.ValidationResult
 
-[src](https://github.com/fastify/fastify/blob/main/types/error.d.ts#L4)
+[src](https://github.com/fastify/fastify/blob/main/fastify.d.ts#L184)
 
 The route validation internally relies upon Ajv, which is a high-performance
 JSON schema validator.

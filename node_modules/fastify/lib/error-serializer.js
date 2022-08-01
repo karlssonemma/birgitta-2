@@ -39,7 +39,7 @@ class Serializer {
     } else {
       /* eslint no-undef: "off" */
       const integer = this.parseInteger(i)
-      if (Number.isNaN(integer)) {
+      if (Number.isNaN(integer) || !Number.isFinite(integer)) {
         throw new Error(`The value "${i}" cannot be converted to an integer.`)
       } else {
         return '' + integer
@@ -55,6 +55,8 @@ class Serializer {
     const num = Number(i)
     if (Number.isNaN(num)) {
       throw new Error(`The value "${i}" cannot be converted to a number.`)
+    } else if (!Number.isFinite(num)) {
+      return null
     } else {
       return '' + num
     }
@@ -72,44 +74,44 @@ class Serializer {
     return bool === null ? 'null' : this.asBoolean(bool)
   }
 
-  asDatetime (date, skipQuotes) {
-    const quotes = skipQuotes === true ? '' : '"'
+  asDateTime (date) {
+    if (date === null) return '""'
     if (date instanceof Date) {
-      return quotes + date.toISOString() + quotes
+      return '"' + date.toISOString() + '"'
     }
-    return this.asString(date, skipQuotes)
+    throw new Error(`The value "${date}" cannot be converted to a date-time.`)
   }
 
-  asDatetimeNullable (date, skipQuotes) {
-    return date === null ? 'null' : this.asDatetime(date, skipQuotes)
+  asDateTimeNullable (date) {
+    return date === null ? 'null' : this.asDateTime(date)
   }
 
-  asDate (date, skipQuotes) {
-    const quotes = skipQuotes === true ? '' : '"'
+  asDate (date) {
+    if (date === null) return '""'
     if (date instanceof Date) {
-      return quotes + new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString().slice(0, 10) + quotes
+      return '"' + new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString().slice(0, 10) + '"'
     }
-    return this.asString(date, skipQuotes)
+    throw new Error(`The value "${date}" cannot be converted to a date.`)
   }
 
-  asDateNullable (date, skipQuotes) {
-    return date === null ? 'null' : this.asDate(date, skipQuotes)
+  asDateNullable (date) {
+    return date === null ? 'null' : this.asDate(date)
   }
 
-  asTime (date, skipQuotes) {
-    const quotes = skipQuotes === true ? '' : '"'
+  asTime (date) {
+    if (date === null) return '""'
     if (date instanceof Date) {
-      return quotes + new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString().slice(11, 19) + quotes
+      return '"' + new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString().slice(11, 19) + '"'
     }
-    return this.asString(date, skipQuotes)
+    throw new Error(`The value "${date}" cannot be converted to a time.`)
   }
 
-  asTimeNullable (date, skipQuotes) {
-    return date === null ? 'null' : this.asTime(date, skipQuotes)
+  asTimeNullable (date) {
+    return date === null ? 'null' : this.asTime(date)
   }
 
-  asString (str, skipQuotes) {
-    const quotes = skipQuotes === true ? '' : '"'
+  asString (str) {
+    const quotes = '"'
     if (str instanceof Date) {
       return quotes + str.toISOString() + quotes
     } else if (str === null) {
@@ -118,11 +120,6 @@ class Serializer {
       str = str.source
     } else if (typeof str !== 'string') {
       str = str.toString()
-    }
-    // If we skipQuotes it means that we are using it as test
-    // no need to test the string length for the render
-    if (skipQuotes) {
-      return str
     }
 
     if (str.length < 42) {
@@ -185,7 +182,7 @@ class Serializer {
     }
     
     function anonymous0 (input) {
-      // main
+      // #
   
       var obj = (input && typeof input.toJSON === 'function')
     ? input.toJSON()

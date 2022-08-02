@@ -107,6 +107,8 @@ function MobileHeader({countryCode, title, isHome, openCart, openMenu}) {
 }
 
 function DesktopHeader({countryCode, isHome, menu, openCart, title}) {
+
+  const {totalQuantity} = useCart();
   
   return (
     <header role="banner" className="hidden lg:flex relative h-max w-full max-w-[100vw] flex-row justify-between items-center z-40 py-6 px-6 md:px-24 bg-gray-light">
@@ -126,6 +128,10 @@ function DesktopHeader({countryCode, isHome, menu, openCart, title}) {
               </NavLink>
             </li>
             )})}
+            <NavLink to='/cart'>
+              <span className="mr-2">({totalQuantity})</span>
+              <Bag />
+            </NavLink>
           </ul>
         </nav>
     </header>
@@ -151,6 +157,15 @@ const Hamburger = () => {
       <div className="w-full h-0.5 bg-black"></div>
       <div className="w-4/5 h-0.5 bg-black"></div>
     </div>
+  )
+}
+
+const Bag = () => {
+  return(
+    <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 19L2 5H14L15 19H1Z" stroke="black" strokeWidth="1.2" strokeLinejoin="round"/>
+      <path d="M5 7V4C5 2.34315 6.34315 1 8 1V1C9.65685 1 11 2.34315 11 4V7" stroke="black" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
   )
 }
 

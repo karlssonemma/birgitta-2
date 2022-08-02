@@ -41,6 +41,7 @@ const FeaturedSection = ({collection, products}) => {
         <ul className={`flex justify-between overflow-x-scroll no-scrollbar scroll-snap-x scroll-smooth gap-6 m-auto max-w-5xl translate-y-[30px] opacity-0 ${inView && "animate-[fadeUp_0.7s_ease-in-out_forwards]"}`}>
 
           {products.map((product) => {  
+            console.log(product)
               return(
                 <li key={product.id} className="w-[60vw] max-w-[300px] h-full object-cover object-center flex-shrink-0 md:flex-shrink-1 snap-start group">
                   <Link to={`products/${product.handle}`}>
@@ -49,8 +50,8 @@ const FeaturedSection = ({collection, products}) => {
                       className="h-[400px] w-full object-cover group-hover:brightness-90 transition-all"
                       // alt={product.featuredImage.altText}
                       alt="bild"
-                      width={300}
-                      height={300}
+                      width={1200}
+                      height={1200}
                     />
                     <div className="my-6 text-center tracking-wide">
                       <p className="font-serif text-lg pb-2  group-hover:underline text-black">{product.title}</p>

@@ -95,8 +95,8 @@ export default function Product() {
             <div className="mt-6 mb-12 relative w-full max-h-max p-8">
              
                 <h1 className="text-2xl tracking-wide text-black font-serif pb-2">{title}</h1>
-                <ProductPrice data={product} valueType="max" className="tracking-wide text-md max-w-fit mb-6" />
-                <p className="max-w-fit uppercase mb-3 pb-1 text-xs border-b border-black tracking-wider">Description</p>
+                <ProductPrice data={product} valueType="max" className="tracking-wide text-md text-black max-w-fit mb-6" />
+                <p className="max-w-fit uppercase mb-3 pb-1 text-xs text-black border-b border-black tracking-wider">Description</p>
                 <p className="font-sans font-light pb-6 text-black text-base tracking-wide">{description}</p>
             <ProductOptions />
             

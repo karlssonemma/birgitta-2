@@ -27,6 +27,7 @@ module.exports = {
         'green-dark': '#8F977E',
         'orange-light': '#C08773',
         'orange-dark': '#A5563C',
+        'black': '#1B1B1B',
       },
       screens: {
         sm: '32em',

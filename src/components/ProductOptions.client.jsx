@@ -18,7 +18,7 @@ export default function ProductOptions() {
        
         return(
         <form key={name}>
-          <p className="max-w-fit uppercase mb-3 pb-1 text-xs border-b border-black tracking-wider">{name}</p>
+          <p className="max-w-fit uppercase mb-3 pb-1 text-xs text-black border-b border-black tracking-wider">{name}</p>
           
           {values.map((value) => {
             const checked = selectedOptions[name] === value;
@@ -28,7 +28,7 @@ export default function ProductOptions() {
               <label 
                 htmlFor={id} 
                 key={id}
-                className="flex pb-2 cursor-pointer tracking-wide font-light"
+                className="flex text-black pb-2 cursor-pointer tracking-wide font-light"
               >
                 <input
                   type="radio" 

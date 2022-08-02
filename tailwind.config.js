@@ -74,6 +74,36 @@ module.exports = {
         darkHeader: 'inset 0px -1px 0px 0px rgba(21, 21, 21, 0.4)',
         lightHeader: 'inset 0px -1px 0px 0px rgba(21, 21, 21, 0.05)',
       },
+      keyframes: {
+        textOut: {
+          '0%': { transform: 'translateY(0px)' },
+          '100%': { transform: 'translateY(40px)' }
+        },
+        textIn: {
+          '0%': { transform: 'translateY(-40px)' },
+          '100%': { transform: 'translateY(0px)' }
+        },
+        fadeUp: {
+          '0%': { transform: 'translateY(30px)', opacity: '0%' },
+          '100%': { transform: 'translateY(0px)', opacity: '100%' }
+        },
+        slideUp: {
+          '0%': { transform: 'translateY(30px)' },
+          '100%': { transform: 'translateY(0px)' }
+        },
+        fadeInRight: {
+          '0%': { transform: 'translateX(-20px)', opacity: '0%' },
+          '100%': { transform: 'translateX(0px)', opacity: '100%' }
+        },
+        zoomIn: {
+          '0%': { transform: 'scale(80%)', opacity: '0%' },
+          '100%': { transform: 'scale(100%)', opacity: '100%' }
+        }
+      },
+      animation: {
+        textOut: 'textOut 0.5s ease-out 0.5s forwards',
+        textIn: 'textIn 0.5s ease-out 1s forwards',
+      }
     },
   },
   // eslint-disable-next-line node/no-unpublished-require

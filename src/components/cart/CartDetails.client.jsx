@@ -18,20 +18,22 @@ export function CartDetails({layout, onClose}) {
     return <CartEmpty onClose={onClose} />;
   }
 
-  const container = {
-    drawer: 'grid grid-cols-1 h-screen-no-nav grid-rows-[1fr_auto]',
-    page: 'pb-12 max-w-7xl mx-auto w-full flex flex-col md:flex-row md:items-start gap-4 md:gap-8 lg:gap-12',
-  };
+  console.log('lines', lines)
 
-  const content = {
-    drawer: 'px-6 pb-6 sm-max:pt-2 overflow-auto transition md:px-12',
-    page: 'flex-grow md:translate-y-4',
-  };
+  // const container = {
+  //   drawer: 'grid grid-cols-1 h-screen-no-nav grid-rows-[1fr_auto]',
+  //   page: 'pb-12 max-w-7xl mx-auto w-full flex flex-col md:flex-row md:items-start gap-4 md:gap-8 lg:gap-12',
+  // };
 
-  const summary = {
-    drawer: 'grid gap-6 p-6 border-t md:px-12',
-    page: 'sticky top-nav grid gap-6 p-4 md:px-6 md:translate-y-4 bg-primary/5 rounded w-full max-w-md',
-  };
+  // const content = {
+  //   drawer: 'px-6 pb-6 sm-max:pt-2 overflow-auto transition md:px-12',
+  //   page: 'flex-grow md:translate-y-4',
+  // };
+
+  // const summary = {
+  //   drawer: 'grid gap-6 p-6 border-t md:px-12',
+  //   page: 'sticky top-nav grid gap-6 p-4 md:px-6 md:translate-y-4 bg-primary/5 rounded w-full max-w-md',
+  // };
 
   return (
     <div className="flex flex-col md:flex-row gap-8 relative">
@@ -58,7 +60,7 @@ export function CartDetails({layout, onClose}) {
         <OrderSummary />
         <CartCheckoutActions />
       </section>
-      
+
     </div>
   );
 }

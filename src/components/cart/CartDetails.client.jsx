@@ -5,20 +5,22 @@ import {
   CartLineProvider,
   CartShopPayButton,
   Money,
+  CartCheckoutButton
 } from '@shopify/hydrogen';
 
 import {Button, Text, CartLineItem, CartEmpty} from '~/components';
+import MoneyPrice from '../MoneyPrice.client';
+import { BUTTON_DEFAULT_CLASS } from '../Button.client';
 
 export function CartDetails({layout, onClose}) {
   const {lines} = useCart();
   const scrollRef = useRef(null);
   const {y} = useScroll(scrollRef);
 
+  
   if (lines.length === 0) {
     return <CartEmpty onClose={onClose} />;
   }
-
-  console.log('lines', lines)
 
   // const container = {
   //   drawer: 'grid grid-cols-1 h-screen-no-nav grid-rows-[1fr_auto]',
@@ -54,47 +56,41 @@ export function CartDetails({layout, onClose}) {
       </section>
 
       <section aria-labelledby="summary-heading" className="w-full md:w-1/2 p-6 flex flex-col">
-        <h2 id="summary-heading" className="sr-only">
+        <OrderSummary />
+        <CartCheckoutButton className={`${BUTTON_DEFAULT_CLASS} px-10`}>Check out</CartCheckoutButton>
+
+        {/* <h2 id="summary-heading" className="sr-only">
           Order summary
         </h2>
         <OrderSummary />
-        <CartCheckoutActions />
+        <CartCheckoutActions /> */}
       </section>
 
     </div>
   );
 }
 
-function CartCheckoutActions() {
-  const {checkoutUrl} = useCart();
-  return (
-    <>
-      <div className="grid gap-4">
-        <Button to={checkoutUrl} width="full">
-          Continue to Checkout
-        </Button>
-        <CartShopPayButton />
-      </div>
-    </>
-  );
-}
-
 function OrderSummary() {
   const {cost} = useCart();
+
   return (
-    <>
-      <dl className="grid">
-        <div className="flex items-center justify-between font-medium">
-          <Text as="dt">Subtotal</Text>
-          <Text as="dd">
-            {cost?.subtotalAmount?.amount ? (
-              <Money data={cost?.subtotalAmount} />
-            ) : (
-              '-'
-            )}
-          </Text>
-        </div>
-      </dl>
-    </>
+    <div className="text-black">
+
+      <div className="flex flex-row justify-between pb-2 text-md">
+          <span>Subtotal</span>
+          <MoneyPrice money={cost.subtotalAmount} />
+      </div>
+
+      <div className="flex flex-row justify-between pb-2 text-md">
+          <span>Taxes</span>
+          {(cost?.totalTaxAmount) ? <MoneyPrice money={cost.totalTaxAmount} /> : <p>-</p>}
+      </div>
+      
+      <div className="flex flex-row justify-between pb-8 text-xl">
+          <span>Total</span>
+          <MoneyPrice money={cost.totalAmount} />
+      </div>
+
+    </div>
   );
 }

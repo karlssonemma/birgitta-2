@@ -109,7 +109,7 @@ function MobileHeader({countryCode, title, isHome, openCart, openMenu}) {
 function DesktopHeader({countryCode, isHome, menu, openCart, title}) {
   
   return (
-    <header role="banner" className="hidden lg:flex relative h-max w-full max-w-[100vw] flex-row justify-between items-center z-40 py-6 px-6 md:px-24">
+    <header role="banner" className="hidden lg:flex relative h-max w-full max-w-[100vw] flex-row justify-between items-center z-40 py-6 px-6 md:px-24 bg-gray-light">
         <Link to="/">
           {title}
         </Link>
@@ -137,7 +137,7 @@ function NavLink({ classes, to, children, target, key }) {
   
   return(
     <Link to={to} key={key} target={target} className={`flex m-4 lowercase hover:underline tracking-widest text-black text-sm overflow-hidden`}>
-      <span className={`flex translate-y-[60px] ${classes}`}>
+      <span className={`flex ${classes}`}>
       {children}
       </span>
     </Link>

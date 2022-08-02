@@ -36,7 +36,7 @@ export default function AllProducts() {
           }}
         />
       </Suspense>
-      <PageHeader heading="All Products" variant="allCollections" />
+      {/* <PageHeader heading="All Products" variant="allCollections" /> */}
       <p className="w-full text-right uppercase tracking-wider text-xs text-gray-dark py-5">{products.nodes.length} products</p>
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 m-auto">
         {/* <ProductGrid

@@ -34,11 +34,11 @@ export function CartDetails({layout, onClose}) {
   };
 
   return (
-    <form className={container[layout]}>
+    <div className="flex flex-col md:flex-row gap-8 relative">
+
       <section
-        ref={scrollRef}
         aria-labelledby="cart-contents"
-        className={`${content[layout]} ${y > 0 && 'border-t'}`}
+        className={`w-full md:w-1/2`}
       >
         <ul className="grid gap-6 md:gap-10">
           {lines.map((line) => {
@@ -50,14 +50,16 @@ export function CartDetails({layout, onClose}) {
           })}
         </ul>
       </section>
-      <section aria-labelledby="summary-heading" className={summary[layout]}>
+
+      <section aria-labelledby="summary-heading" className="w-full md:w-1/2 p-6 flex flex-col">
         <h2 id="summary-heading" className="sr-only">
           Order summary
         </h2>
         <OrderSummary />
         <CartCheckoutActions />
       </section>
-    </form>
+      
+    </div>
   );
 }
 

@@ -128,6 +128,9 @@ function DesktopHeader({countryCode, isHome, menu, openCart, title}) {
               </NavLink>
             </li>
             )})}
+            <NavLink to='/info'>
+              info
+            </NavLink>
             <NavLink to='/cart'>
               <span className="mr-2">({totalQuantity})</span>
               <Bag />

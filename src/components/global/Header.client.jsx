@@ -1,5 +1,7 @@
-import {Link, useUrl, useCart} from '@shopify/hydrogen';
+import {Link, useUrl, useCart, Image} from '@shopify/hydrogen';
 import {useWindowScroll} from 'react-use';
+import logob from '../../assets/logob.svg'
+import burger from '../../assets/burger.svg'
 
 import {
   Heading,
@@ -81,25 +83,18 @@ function MobileHeader({countryCode, title, isHome, openCart, openMenu}) {
         className="font-black font-serif uppercase text-3xl tracking-widest overflow-hidden"
         to="/"
       >
-        <Heading className="font-bold text-center" as={isHome ? 'h1' : 'h2'}>
-          {title}
-        </Heading>
+        <Logo />
       </Link>
 
-      <div className="flex">
-        <button onClick={openMenu} className={styles.button}>
+      <div className="flex items-center">
+        <button onClick={openMenu} className='flex m-4 h-max'>
           <Hamburger />
         </button>
-        <button onClick={openCart} className={styles.button}>
-          {/* <IconBag /> */}
-          <img 
-              src="/shopping-bag.png"
-              className="w-5 ml-2"
-              alt="Shopping bag icon"
-            />
-          <span className="text-black">({totalQuantity})</span>
+        <NavLink to='/cart'>
+          <span className="text-black mr-2">({totalQuantity})</span>
+          <Bag />
           {/* <CartBadge dark={isHome} /> */}
-        </button>
+        </NavLink>
       </div>
 
     </header>
@@ -113,7 +108,7 @@ function DesktopHeader({countryCode, isHome, menu, openCart, title}) {
   return (
     <header role="banner" className="hidden lg:flex relative h-max w-full max-w-[100vw] flex-row justify-between items-center z-40 py-6 px-6 md:px-24 bg-gray-light">
         <Link to="/">
-          {title}
+          <Logo />
         </Link>
         <nav className="flex gap-8">
           <ul className="md:flex items-center justify-center">
@@ -155,11 +150,11 @@ function NavLink({ classes, to, children, target, key }) {
 
 const Hamburger = () => {
   return(
-    <div className="w-6 h-4 flex flex-col justify-between">
-      <div className="w-full h-0.5 bg-black"></div>
-      <div className="w-full h-0.5 bg-black"></div>
-      <div className="w-4/5 h-0.5 bg-black"></div>
-    </div>
+    <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 1H15" stroke="black" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M1 9H15" stroke="black" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M1 5H15" stroke="black" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>
   )
 }
 
@@ -172,6 +167,16 @@ const Bag = () => {
   )
 }
 
+const Logo = () => {
+
+  return(
+    <Image 
+      src={logob} 
+      width="150" 
+      height="50" 
+    />
+  )
+}
 // function CartBadge({dark}) {
 //   const {totalQuantity} = useCart();
 

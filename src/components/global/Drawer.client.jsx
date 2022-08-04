@@ -50,26 +50,13 @@ function Drawer({heading, open, onClose, openFrom = 'right', children}) {
                 leaveTo={offScreen[openFrom]}
               >
                 <Dialog.Panel className="w-screen h-screen max-w-lg text-left align-middle transition-all transform shadow-xl bg-gray-light">
-                  <header
-                    className={`sticky top-0 flex items-center px-6 h-nav sm:px-8 md:px-12 ${
-                      heading ? 'justify-between' : 'justify-end'
-                    }`}
-                  >
-                    {heading !== null && (
-                      <Dialog.Title>
-                        <Heading as="span" size="lead" id="cart-contents">
-                          {heading}
-                        </Heading>
-                      </Dialog.Title>
-                    )}
-                    <button
+                  <button
                       type="button"
-                      className="p-4 -m-4 transition text-primary hover:text-primary/50"
+                      className="p-8 transition text-black absolute top-0 right-0"
                       onClick={onClose}
                     >
                       <IconClose aria-label="Close panel" />
                     </button>
-                  </header>
                   {children}
                 </Dialog.Panel>
               </Transition.Child>

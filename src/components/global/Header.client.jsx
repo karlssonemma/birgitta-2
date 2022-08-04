@@ -65,19 +65,8 @@ function MobileHeader({countryCode, title, isHome, openCart, openMenu}) {
   const {y} = useWindowScroll();
   const {totalQuantity} = useCart()
 
-  const styles = {
-    button: 'relative flex items-center justify-center w-8 h-8',
-    container: `${
-      isHome
-        ? 'bg-primary/80 dark:bg-contrast/60 text-contrast dark:text-primary shadow-darkHeader'
-        : 'bg-contrast/80 text-primary'
-    } ${
-      y > 50 && !isHome && 'shadow-lightHeader'
-    } flex lg:hidden items-center h-nav sticky backdrop-blur-lg z-40 top-0 justify-between w-full leading-none gap-4 px-4 md:px-8`,
-  };
-
   return (
-    <header role="banner" className="lg:hidden relative h-max w-full max-w-[100vw] flex flex-row justify-between items-center z-40 py-6 px-6 md:px-24">
+    <header role="banner" className="lg:hidden relative h-max w-full max-w-[100vw] flex flex-row justify-between items-center z-40 py-6 px-6 md:px-24 bg-gray-light">
 
       <Link
         className="font-black font-serif uppercase text-3xl tracking-widest overflow-hidden"

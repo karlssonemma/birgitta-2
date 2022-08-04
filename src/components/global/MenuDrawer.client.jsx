@@ -5,22 +5,23 @@ import {Link} from '@shopify/hydrogen';
 export function MenuDrawer({isOpen, onClose, menu}) {
   return (
     <Drawer open={isOpen} onClose={onClose} openFrom="left">
-      <div className="grid bg-gray-light">
         <MenuMobileNav menu={menu} onClose={onClose} />
-      </div>
     </Drawer>
   );
 }
 
 function MenuMobileNav({menu, onClose}) {
   return (
-    <nav className="grid gap-4 p-6 sm:gap-6 sm:px-12 sm:py-8 bg-gray-light">
+    <nav className="p-6 flex flex-col bg-gray-light w-full h-full justify-center">
       {/* Top level menu items */}
       {(menu?.items || []).map((item) => (
-        <Link key={item.id} to={item.to} target={item.target} onClick={onClose} className="text-black">
+        <Link key={item.id} to={item.to} target={item.target} onClick={onClose} className="text-black p-4 lowercase tracking-wider">
             {item.title}
         </Link>
       ))}
+      <Link to='/info' onClick={onClose} className="text-black p-4 lowercase tracking-wider" key={'infoPage'}>
+        Info
+      </Link>
     </nav>
   );
 }

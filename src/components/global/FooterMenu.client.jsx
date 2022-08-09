@@ -1,5 +1,6 @@
 // @ts-expect-error @headlessui/react incompatibility with node16 resolution
 import {Link} from '@shopify/hydrogen';
+import ArrowLink from '../ArrowLink';
 
 
 /**
@@ -8,13 +9,14 @@ import {Link} from '@shopify/hydrogen';
 export function FooterMenu({menu}) {
   
   return (
-    <section className="w-max flex justify-between items-center">
+    <section className="w-max flex flex-col justify-between">
 
       {(menu?.items || []).map((item) => {
         return(
-          <Link key={item.id} target={item.target} to={item.url} className="text-xs uppercase text-gray-dark hover:underline mx-4 tracking-wider">
-            {item.title}
-          </Link>
+          // <Link key={item.id} target={item.target} to={item.url} className="text-xs lowercase text-gray-dark hover:underline mx-4 tracking-wider">
+          //   {item.title}
+          // </Link>
+          <ArrowLink direction='right' to={item.url} label={item.title} classes='lowercase' blank={true} />
         )
       })}
     </section>

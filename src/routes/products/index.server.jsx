@@ -13,14 +13,6 @@ export default function AllProducts() {
     country: {isoCode: countryCode},
   } = useLocalization();
 
-  console.log('LOCHOOK', useLocalization())
-
- 
-  
-
-  console.log("LANG ==>", languageCode)
-  console.log("Country ==>", countryCode)
-
   const {data} = useShopQuery({
     query: ALL_PRODUCTS_QUERY,
     variables: {
@@ -30,6 +22,8 @@ export default function AllProducts() {
     },
     preload: true,
   });
+
+  console.log("ALL PRODS===>", data)
 
   const products = data.products;
 

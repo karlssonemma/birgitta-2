@@ -7,9 +7,13 @@ import {
   useMoney,
 } from '@shopify/hydrogen';
 
-import {Text} from '~/components';
+import {useState, useEffect} from 'react';
+
 import {isDiscounted, isNewArrival} from '~/lib/utils';
 import {getProductPlaceholder} from '~/lib/placeholders';
+
+import ArrowIcon from '../ArrowIcon';
+import MoneyPrice from '../MoneyPrice.client';
 
 export function ProductCard({product, label, className, loading, onClick}) {
   let cardLabel;
@@ -29,23 +33,32 @@ export function ProductCard({product, label, className, loading, onClick}) {
   } else if (isNewArrival(product.publishedAt)) {
     cardLabel = 'New';
   }
-
+ 
   const styles = clsx('grid gap-6', className);
 
+  // const [cardInView, setCardInView] = useState(false);
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll)
+  //   handleScroll()
+  // }, [])
+
+  // const handleScroll = (e) => {
+
+  //   let prod = document.getElementById(product.id);    
+  //   let productPosition = prod.getBoundingClientRect().top;
+  //   let screenPosition = window.innerHeight / 1.2;
+
+  //   if (productPosition < screenPosition) setCardInView(true)
+    
+  // }
+
   return (
+    <div className={`block text-md mb-4 relative group transition duration-500 ease-in-out`}>
     <Link onClick={onClick} to={`/products/${product.handle}`}>
-      <div className={styles}>
-        <div className="card-image aspect-[4/5] bg-primary/5">
-          <Text
-            as="label"
-            size="fine"
-            className="absolute top-0 right-0 m-4 text-right text-notice"
-          >
-            {cardLabel}
-          </Text>
           {image && (
             <Image
-              className="aspect-[4/5] w-full object-cover fadeIn"
+              className="object-cover aspect-square mb-2 group-hover:brightness-90 transition-all"
               widths={[320]}
               sizes="320px"
               loaderOptions={{
@@ -60,15 +73,13 @@ export function ProductCard({product, label, className, loading, onClick}) {
               loading={loading}
             />
           )}
-        </div>
-        <div className="grid gap-1">
-          <Text
-            className="w-full overflow-hidden whitespace-nowrap text-ellipsis "
-            as="h3"
-          >
-            {product.title}
-          </Text>
-          <div className="flex gap-4">
+        
+        <div className="relative my-8">
+          <p className="mb-2 text-black font-serif text-xl tracking-wide group-hover:underline">{product.title}</p>
+          <MoneyPrice money={price} />
+          <ArrowIcon classes="rotate-180 absolute top-2 right-0"/>
+
+          {/* <div className="flex gap-4">
             <Text className="flex gap-4">
               <Money withoutTrailingZeros data={price} />
               {isDiscounted(price, compareAtPrice) && (
@@ -78,23 +89,10 @@ export function ProductCard({product, label, className, loading, onClick}) {
                 />
               )}
             </Text>
-          </div>
+          </div> */}
         </div>
-      </div>
     </Link>
+   </div>
   );
 }
 
-function CompareAtPrice({data, className}) {
-  const {currencyNarrowSymbol, withoutTrailingZerosAndCurrency} =
-    useMoney(data);
-
-  const styles = clsx('strike', className);
-
-  return (
-    <span className={styles}>
-      {currencyNarrowSymbol}
-      {withoutTrailingZerosAndCurrency}
-    </span>
-  );
-}

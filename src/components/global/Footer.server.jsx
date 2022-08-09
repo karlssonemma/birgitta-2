@@ -39,6 +39,7 @@ export function Footer({menu}) {
       <section className="flex pt-6">
         <Cards />
       </section>
+      <CountrySelector />
       {/* <div
         className={`self-end pt-8 opacity-50 md:col-span-2 lg:col-span-${itemsCount}`}
       >

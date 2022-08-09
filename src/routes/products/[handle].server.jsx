@@ -63,7 +63,6 @@ export default function Product() {
   const {media, title, vendor, description, id} = product;
   const {shippingPolicy, refundPolicy} = shop;
 
-  console.log("MY PRODUCT =====>", product)
 
   const images = flattenConnection(product.media)
 

@@ -9,9 +9,7 @@ import NoImage from "./NoImage";
  * A shared component that displays a single product to allow buyers to quickly identify a particular item of interest
  */
 export default function ProductCard({product}) {
-  console.log("ONE PROD===>", product)
   const selectedVariant = product.variants.nodes[0];
-  console.log("SELEECT IMG", selectedVariant.image)
   
   if (selectedVariant == null) {
     return null;

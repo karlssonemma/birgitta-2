@@ -1,7 +1,7 @@
 import {Link, useUrl, useCart, Image} from '@shopify/hydrogen';
 import {useWindowScroll} from 'react-use';
-import logob from '../../assets/logob.svg'
-import burger from '../../assets/burger.svg'
+import logob from '../../assets/logob.svg';
+import burger from '../../assets/burger.svg';
 
 import {
   Heading,
@@ -10,6 +10,7 @@ import {
   IconMenu,
   IconSearch,
   Input,
+  CountrySelector
 } from '~/components';
 
 import {CartDrawer} from './CartDrawer.client';
@@ -98,6 +99,7 @@ function DesktopHeader({countryCode, isHome, menu, openCart, title}) {
     <header role="banner" className="hidden lg:flex relative h-max w-full max-w-[100vw] flex-row justify-between items-center z-40 py-6 px-6 md:px-24 bg-gray-light">
         <Link to="/">
           <Logo />
+          <CountrySelector />
         </Link>
         <nav className="flex gap-8">
           <ul className="md:flex items-center justify-center">
@@ -163,6 +165,7 @@ const Logo = () => {
       src={logob} 
       width="150" 
       height="50" 
+      alt="Logo with link to homepage."
     />
   )
 }

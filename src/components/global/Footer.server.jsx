@@ -13,12 +13,13 @@ export function Footer({menu}) {
     query: PAYMENT_QUERY
   });
 
+  let year = new Date().getFullYear();
   const paymentMethods = [...data.shop.paymentSettings.acceptedCardBrands, ...data.shop.paymentSettings.supportedDigitalWallets]
 
     const Cards = () => {
     
       return(
-        <>
+        <div className="flex my-5">
           {PAYMENT_ICONS.map(icon => {
             if (paymentMethods.includes(icon.name)) 
                 return(
@@ -27,19 +28,25 @@ export function Footer({menu}) {
                   </div>
                 )
           })}
-        </>
+        </div>
       )
     }
 
   return (
     <footer
-      className="w-screen h-40 py-6 px-6 md:px-24 bottom-0 left-0 relative flex flex-col justify-center items-center bg-gray-light"
+      className="w-screen bg-blue-200 h-max py-10 px-6 md:px-24 bottom-0 left-0 relative flex flex-col-reverse md:flex-row justify-between items-center bg-gray-light"
     >
-      <FooterMenu menu={menu} />
-      <section className="flex pt-6">
+      <section className="flex flex-col pt-6">
+        <CountrySelector />
         <Cards />
+        <small className="text-gray-dark">Copyright &copy; {year}, Developed by&nbsp;
+        <a href="http://www.karlssonemma.com" target="_blank">
+           Emma Karlsson
+        </a></small>
       </section>
-      <CountrySelector />
+      <FooterMenu menu={menu} />
+
+      
       {/* <div
         className={`self-end pt-8 opacity-50 md:col-span-2 lg:col-span-${itemsCount}`}
       >

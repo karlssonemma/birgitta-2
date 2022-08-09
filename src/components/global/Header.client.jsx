@@ -99,7 +99,6 @@ function DesktopHeader({countryCode, isHome, menu, openCart, title}) {
     <header role="banner" className="hidden lg:flex relative h-max w-full max-w-[100vw] flex-row justify-between items-center z-40 py-6 px-6 md:px-24 bg-gray-light">
         <Link to="/">
           <Logo />
-          <CountrySelector />
         </Link>
         <nav className="flex gap-8">
           <ul className="md:flex items-center justify-center">

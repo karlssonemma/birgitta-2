@@ -12,7 +12,7 @@ import {Button, Text, CartLineItem, CartEmpty} from '~/components';
 import MoneyPrice from '../MoneyPrice.client';
 import { BUTTON_DEFAULT_CLASS } from '../Button.client';
 
-export function CartDetails({layout, onClose}) {
+export function CartDetails({layout, onClose, data}) {
   const {lines} = useCart();
   const scrollRef = useRef(null);
   const {y} = useScroll(scrollRef);
@@ -44,7 +44,7 @@ export function CartDetails({layout, onClose}) {
         aria-labelledby="cart-contents"
         className={`w-full md:w-1/2`}
       >
-        <ul className="grid gap-6 md:gap-10">
+        <ul className="grid gap-4">
           {lines.map((line) => {
             return (
               <CartLineProvider key={line.id} line={line}>
@@ -56,7 +56,12 @@ export function CartDetails({layout, onClose}) {
       </section>
 
       <section aria-labelledby="summary-heading" className="w-full md:w-1/2 p-6 flex flex-col">
+        <article className="mb-8 text-black">
+          <h2 className="mb-2">{data.blog.articleByHandle.title}</h2>
+          <p className="text-sm font-light">{data.blog.articleByHandle.excerpt}</p>
+        </article>
         <OrderSummary />
+        
         <CartCheckoutButton className={`${BUTTON_DEFAULT_CLASS} px-10`}>Check out</CartCheckoutButton>
 
         {/* <h2 id="summary-heading" className="sr-only">

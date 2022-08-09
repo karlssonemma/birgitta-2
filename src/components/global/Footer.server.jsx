@@ -19,7 +19,7 @@ export function Footer({menu}) {
     const Cards = () => {
     
       return(
-        <div className="flex my-5">
+        <div className="flex my-5 justify-center md:justify-start">
           {PAYMENT_ICONS.map(icon => {
             if (paymentMethods.includes(icon.name)) 
                 return(
@@ -34,8 +34,10 @@ export function Footer({menu}) {
 
   return (
     <footer
-      className="w-screen bg-blue-200 h-max py-10 px-6 md:px-24 bottom-0 left-0 relative flex flex-col-reverse md:flex-row justify-between items-center bg-gray-light"
+      className="w-screen h-max py-10 px-6 md:px-24 bottom-0 left-0 relative flex flex-col md:flex-row justify-between items-center bg-gray-medium"
     >
+            <FooterMenu menu={menu} />
+
       <section className="flex flex-col pt-6">
         <CountrySelector />
         <Cards />
@@ -44,7 +46,6 @@ export function Footer({menu}) {
            Emma Karlsson
         </a></small>
       </section>
-      <FooterMenu menu={menu} />
 
       
       {/* <div

@@ -48,7 +48,7 @@ export function CountrySelector() {
   );
 
   return (
-    <div className="relative">
+    <div className="relative text-sm">
       <Listbox onChange={setCountry}>
         {/* @ts-expect-error @headlessui/react incompatibility with node16 resolution */}
         {({open}) => {
@@ -56,24 +56,24 @@ export function CountrySelector() {
           return (
             <>
               <Listbox.Button
-                className={`flex items-center justify-between w-full py-2 px-2 border border-gray-dark ${
+                className={` bg-white flex items-center justify-between w-full py-2 px-2 border border-gray-medium ${
                   open ? 'rounded-b md:rounded-t md:rounded-b-none' : 'rounded'
                 }`}
               >
                 <span className="text-gray-dark tracking-wider">{currentCountry.name}</span>
-                <IconCaret direction={open ? 'up' : 'down'} />
+                <IconCaret direction={open ? 'up' : 'down'} stroke='#898989' />
               </Listbox.Button>
 
               <Listbox.Options
-                className={`border-t-gray-dark border-gray-dark bg-gray-light absolute bottom-12 z-10 grid
-                h-48 w-full overflow-y-scroll rounded-t border px-2 py-2
+                className={`border-t-gray-medium border-gray-medium bg-white absolute bottom-12 z-10 grid
+                h-28 w-full overflow-y-scroll rounded-t border 
                 transition-[max-height] duration-150 sm:bottom-auto md:rounded-b md:rounded-t-none
                 md:border-t-0 md:border-b ${
-                  listboxOpen ? 'max-h-48' : 'max-h-0'
+                  listboxOpen ? 'max-h-18' : 'max-h-0'
                 }`}
               >
                 {listboxOpen && (
-                  <Suspense fallback={<div className="p-2">Loading…</div>}>
+                  <Suspense fallback={<div className="p-2 text-gray-dark">Loading…</div>}>
                     {/* @ts-expect-error @headlessui/react incompatibility with node16 resolution */}
                     <Countries
                       selectedCountry={currentCountry}

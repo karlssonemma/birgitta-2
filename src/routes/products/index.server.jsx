@@ -23,8 +23,6 @@ export default function AllProducts() {
     preload: true,
   });
 
-  console.log("ALL PRODS===>", data)
-
   const products = data.products;
 
 

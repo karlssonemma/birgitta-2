@@ -16,7 +16,7 @@ import {
 import {MEDIA_FRAGMENT} from '~/lib/fragments';
 import {NotFound, Layout} from '~/components/index.server';
 
-import ProductOptions from '../../components/ProductOptions.client';
+import ProductOptions from '~/components';
 import NoImage from '../../components/NoImage';
 import Gallery from '../../components/Gallery.client';
 

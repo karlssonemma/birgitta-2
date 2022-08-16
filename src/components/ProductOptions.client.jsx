@@ -1,14 +1,12 @@
 // import {useProduct} from '@shopify/hydrogen/client';
 import { useProductOptions, AddToCartButton } from '@shopify/hydrogen/client';
 import { useEffect } from 'react';
-import {BUTTON_DEFAULT_CLASS} from '../components/Button.client';
-
+import { BUTTON_DEFAULT_CLASS } from './Button.client';
 
 export default function ProductOptions() {
   const {options, setSelectedOption, selectedOptions, selectedVariant} = useProductOptions();
 
   useEffect(() => {
-    console.log("sleectEED", selectedOptions)
   },[selectedOptions])
 
   return(

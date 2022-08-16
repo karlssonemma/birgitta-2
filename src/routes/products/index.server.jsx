@@ -4,7 +4,7 @@ import {PRODUCT_CARD_FRAGMENT} from '~/lib/fragments';
 import {PAGINATION_SIZE} from '~/lib/const';
 import {Layout} from '~/components/index.server';
 import {Suspense} from 'react';
-import ProductCard from '../../components/ProductCard.client';
+import { ProductCard } from '../../components/index';
 
 export default function AllProducts() {
   const {

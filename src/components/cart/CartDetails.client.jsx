@@ -1,41 +1,19 @@
-import {useRef} from 'react';
-import {useScroll} from 'react-use';
 import {
   useCart,
   CartLineProvider,
-  CartShopPayButton,
-  Money,
   CartCheckoutButton
 } from '@shopify/hydrogen';
 
-import {Button, Text, CartLineItem, CartEmpty} from '~/components';
+import {CartLineItem, CartEmpty} from '~/components';
 import MoneyPrice from '../MoneyPrice.client';
 import { BUTTON_DEFAULT_CLASS } from '../Button.client';
 
-export function CartDetails({layout, onClose, data}) {
+export function CartDetails({onClose, data}) {
   const {lines} = useCart();
-  const scrollRef = useRef(null);
-  const {y} = useScroll(scrollRef);
-
   
   if (lines.length === 0) {
     return <CartEmpty onClose={onClose} />;
   }
-
-  // const container = {
-  //   drawer: 'grid grid-cols-1 h-screen-no-nav grid-rows-[1fr_auto]',
-  //   page: 'pb-12 max-w-7xl mx-auto w-full flex flex-col md:flex-row md:items-start gap-4 md:gap-8 lg:gap-12',
-  // };
-
-  // const content = {
-  //   drawer: 'px-6 pb-6 sm-max:pt-2 overflow-auto transition md:px-12',
-  //   page: 'flex-grow md:translate-y-4',
-  // };
-
-  // const summary = {
-  //   drawer: 'grid gap-6 p-6 border-t md:px-12',
-  //   page: 'sticky top-nav grid gap-6 p-4 md:px-6 md:translate-y-4 bg-primary/5 rounded w-full max-w-md',
-  // };
 
   return (
     <div className="flex flex-col md:flex-row gap-8 relative">
@@ -60,15 +38,10 @@ export function CartDetails({layout, onClose, data}) {
           <h2 className="mb-2">{data.blog.articleByHandle.title}</h2>
           <p className="text-sm font-light">{data.blog.articleByHandle.excerpt}</p>
         </article>
+
         <OrderSummary />
         
         <CartCheckoutButton className={`${BUTTON_DEFAULT_CLASS} px-10`}>Check out</CartCheckoutButton>
-
-        {/* <h2 id="summary-heading" className="sr-only">
-          Order summary
-        </h2>
-        <OrderSummary />
-        <CartCheckoutActions /> */}
       </section>
 
     </div>

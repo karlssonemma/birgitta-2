@@ -1,10 +1,6 @@
-import {useRef} from 'react';
-import {useScroll} from 'react-use';
-import {Skeleton} from '~/components';
 import ArrowLink from '../ArrowLink';
 
-export function CartEmpty({onClose}) {
-  const scrollRef = useRef(null);
+export function CartEmpty() {
 
   return (
     <section className="pt-24">
@@ -12,19 +8,5 @@ export function CartEmpty({onClose}) {
       <ArrowLink label="shop" to="/products" direction="right" />
       <ArrowLink label="about" to="/pages/about" direction="right" />
     </section>
-  );
-}
-
-function Loading() {
-  return (
-    <>
-      {[...new Array(4)].map((_, i) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <div key={i} className="grid gap-2">
-          <Skeleton className="aspect-[3/4]" />
-          <Skeleton className="w-32 h-4" />
-        </div>
-      ))}
-    </>
   );
 }

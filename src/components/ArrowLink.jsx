@@ -3,7 +3,7 @@ import { Link } from "@shopify/hydrogen/client";
 
     
 
-const ArrowLink = ({ label, to, direction, classes, color, blank }) => {
+const ArrowLink = ({ label, to, direction, classes, blank }) => {
 
     console.log(blank)
 

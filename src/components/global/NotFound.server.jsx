@@ -1,8 +1,5 @@
-import {gql, useLocalization, useShopQuery} from '@shopify/hydrogen';
-
-import {PRODUCT_CARD_FRAGMENT} from '~/lib/fragments';
-import {Button, FeaturedCollections, PageHeader, Text} from '~/components';
-import {ProductSwimlane, Layout} from '~/components/index.server';
+import {Layout} from '~/components/index.server';
+import ArrowLink from '../ArrowLink';
 
 export function NotFound({response, type = 'page'}) {
   if (response) {
@@ -11,65 +8,15 @@ export function NotFound({response, type = 'page'}) {
     response.statusText = 'Not found';
   }
 
-  const {
-    language: {isoCode: languageCode},
-    country: {isoCode: countryCode},
-  } = useLocalization();
-
-  const {data} = useShopQuery({
-    query: NOT_FOUND_QUERY,
-    variables: {
-      language: languageCode,
-      country: countryCode,
-    },
-    preload: true,
-  });
-
-  const heading = `We’ve lost this ${type}`;
-  const description = `We couldn’t find the ${type} you’re looking for. Try checking the URL or heading back to the home page.`;
-  const {featuredCollections, featuredProducts} = data;
   return (
     <Layout>
-      <PageHeader heading={heading}>
-        <Text width="narrow" as="p">
-          {description}
-        </Text>
-        <Button width="auto" variant="secondary" to={'/'}>
-          Take me to the home page
-        </Button>
-      </PageHeader>
-      {featuredCollections.nodes.length < 2 && (
-        <FeaturedCollections
-          title="Popular Collections"
-          data={featuredCollections.nodes}
-        />
-      )}
-      <ProductSwimlane data={featuredProducts.nodes} />
+      <section className="min-h-[600px] flex flex-col justify-center">
+        <h1 className="text-6xl mb-8">404</h1>
+        <p className="mb-8 font-serif">We can't seem to find the page you're looking for :(</p>
+        <ArrowLink to="/" direction="right" label="home" />
+        <ArrowLink to="/collections/main" direction="right" label="shop" />
+      </section>
     </Layout>
   );
 }
 
-const NOT_FOUND_QUERY = gql`
-  ${PRODUCT_CARD_FRAGMENT}
-  query homepage($country: CountryCode, $language: LanguageCode)
-  @inContext(country: $country, language: $language) {
-    featuredCollections: collections(first: 3, sortKey: UPDATED_AT) {
-      nodes {
-        id
-        title
-        handle
-        image {
-          altText
-          width
-          height
-          url
-        }
-      }
-    }
-    featuredProducts: products(first: 12) {
-      nodes {
-        ...ProductCard
-      }
-    }
-  }
-`;

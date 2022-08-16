@@ -10,7 +10,6 @@ import {
 } from '@shopify/hydrogen';
 
 import {PRODUCT_CARD_FRAGMENT} from '~/lib/fragments';
-import {PageHeader, ProductGrid, Section, Text} from '~/components';
 import {NotFound, Layout} from '~/components/index.server';
 import ProductCard from '../../components/ProductCard.client';
 
@@ -55,17 +54,6 @@ export default function Collection({params}) {
       <Suspense>
         <Seo type="collection" data={collection} />
       </Suspense>
-      {/* <PageHeader heading={collection.title}>
-        {collection?.description && (
-          <div className="flex items-baseline justify-between w-full">
-            <div>
-              <Text format width="narrow" as="p" className="inline-block">
-                {collection.description}
-              </Text>
-            </div>
-          </div>
-        )}
-      </PageHeader> */}
         <p className="w-full text-right uppercase tracking-wider text-xs text-gray-dark py-5">{products.length} products</p>
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 m-auto">
           {products && products.map((product) => (

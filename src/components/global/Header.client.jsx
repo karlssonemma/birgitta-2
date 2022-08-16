@@ -1,19 +1,7 @@
 import {Link, useUrl, useCart, Image} from '@shopify/hydrogen';
 import {useWindowScroll} from 'react-use';
 import logob from '../../assets/logob.svg';
-import burger from '../../assets/burger.svg';
 
-import {
-  Heading,
-  IconAccount,
-  IconBag,
-  IconMenu,
-  IconSearch,
-  Input,
-  CountrySelector
-} from '~/components';
-
-import {CartDrawer} from './CartDrawer.client';
 import {MenuDrawer} from './MenuDrawer.client';
 import {useDrawer} from './Drawer.client';
 
@@ -42,7 +30,6 @@ export function Header({title, menu}) {
 
   return (
     <>
-      {/* <CartDrawer isOpen={isCartOpen} onClose={closeCart} /> */}
       <MenuDrawer isOpen={isMenuOpen} onClose={closeMenu} menu={menu} />
       <DesktopHeader
         countryCode={countryCode}

@@ -1,7 +1,7 @@
 import {useShopQuery, useLocalization, gql, Seo} from '@shopify/hydrogen';
 import {Suspense} from 'react';
 
-import {PageHeader, Section, Grid} from '~/components';
+import {Section, Grid} from '~/components';
 import {Layout, CollectionCard} from '~/components/index.server';
 import {getImageLoadingPriority, PAGINATION_SIZE} from '~/lib/const';
 
@@ -33,7 +33,6 @@ export default function Collections() {
           }}
         />
       </Suspense>
-      <PageHeader heading="Collections" />
       <Section>
         <Grid items={collections.length === 3 ? 3 : 2}>
           {collections.map((collection, i) => (

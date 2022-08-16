@@ -2,7 +2,6 @@ import {useShopQuery, gql, useLocalization, Seo} from '@shopify/hydrogen';
 
 import {PRODUCT_CARD_FRAGMENT} from '~/lib/fragments';
 import {PAGINATION_SIZE} from '~/lib/const';
-import {ProductGrid, PageHeader, Section} from '~/components';
 import {Layout} from '~/components/index.server';
 import {Suspense} from 'react';
 import ProductCard from '../../components/ProductCard.client';
@@ -36,14 +35,8 @@ export default function AllProducts() {
           }}
         />
       </Suspense>
-      {/* <PageHeader heading="All Products" variant="allCollections" /> */}
       <p className="w-full text-right uppercase tracking-wider text-xs text-gray-dark py-5">{products.nodes.length} products</p>
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 m-auto">
-        {/* <ProductGrid
-          key="products"
-          url={`/products?country=${countryCode}`}
-          collection={{products}}
-        /> */}
 
         {products?.nodes && products.nodes.map((product) => (
           <li key={product.id}>

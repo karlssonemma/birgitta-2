@@ -1,16 +1,10 @@
 import {
     useLocalization,
     useShopQuery,
-    Seo,
-    useServerAnalytics,
-    ShopifyAnalyticsConstants,
     gql,
-    useRouteParams,
     Image
   } from '@shopify/hydrogen';
 import {Suspense} from 'react';
-
-import {PageHeader} from '~/components';
 import {NotFound, Layout} from '~/components/index.server';
 
 export default function AboutPage({params}) {

@@ -8,7 +8,6 @@ import {
 } from '@shopify/hydrogen';
 import {Suspense} from 'react';
 
-import {PageHeader} from '~/components';
 import {NotFound, Layout} from '~/components/index.server';
 
 export default function Page({params}) {
@@ -40,12 +39,10 @@ export default function Page({params}) {
       <Suspense>
         <Seo type="page" data={page} />
       </Suspense>
-      <PageHeader heading={page.title}>
         <div
           dangerouslySetInnerHTML={{__html: page.body}}
           className="prose dark:prose-invert"
         />
-      </PageHeader>
     </Layout>
   );
 }

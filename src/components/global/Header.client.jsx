@@ -1,5 +1,4 @@
 import {Link, useUrl, useCart, Image} from '@shopify/hydrogen';
-import {useWindowScroll} from 'react-use';
 import logob from '../../assets/logob.svg';
 
 import {MenuDrawer} from './MenuDrawer.client';
@@ -49,8 +48,7 @@ export function Header({title, menu}) {
   );
 }
 
-function MobileHeader({countryCode, title, isHome, openCart, openMenu}) {
-  const {y} = useWindowScroll();
+function MobileHeader({openMenu}) {
   const {totalQuantity} = useCart()
 
   return (
@@ -78,7 +76,7 @@ function MobileHeader({countryCode, title, isHome, openCart, openMenu}) {
   );
 }
 
-function DesktopHeader({countryCode, isHome, menu, openCart, title}) {
+function DesktopHeader({menu}) {
 
   const {totalQuantity} = useCart();
   

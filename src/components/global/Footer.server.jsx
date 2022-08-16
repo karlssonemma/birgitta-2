@@ -1,6 +1,6 @@
-import {useUrl, useShopQuery, gql} from '@shopify/hydrogen';
+import {useShopQuery, gql} from '@shopify/hydrogen';
 
-import {Section, Heading, FooterMenu, CountrySelector} from '~/components';
+import {FooterMenu, CountrySelector} from '~/components';
 
 import { PAYMENT_ICONS } from '../PaymentIcons';
 
@@ -46,14 +46,6 @@ export function Footer({menu}) {
            Emma Karlsson
         </a></small>
       </section>
-
-      
-      {/* <div
-        className={`self-end pt-8 opacity-50 md:col-span-2 lg:col-span-${itemsCount}`}
-      >
-        &copy; {new Date().getFullYear()} / Shopify, Inc. Hydrogen is an MIT
-        Licensed Open Source project. This website is carbon&nbsp;neutral.
-      </div> */}
     </footer>
   );
 }

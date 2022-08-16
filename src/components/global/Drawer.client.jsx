@@ -2,7 +2,7 @@ import {Fragment, useState} from 'react';
 // @ts-expect-error @headlessui/react incompatibility with node16 resolution
 import {Dialog, Transition} from '@headlessui/react';
 
-import {Heading, IconClose} from '~/components';
+import {IconClose} from '~/components';
 
 /**
  * Drawer component that opens on user click.

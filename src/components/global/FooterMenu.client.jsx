@@ -1,5 +1,4 @@
 // @ts-expect-error @headlessui/react incompatibility with node16 resolution
-import {Link} from '@shopify/hydrogen';
 import ArrowLink from '../ArrowLink';
 
 
@@ -13,9 +12,6 @@ export function FooterMenu({menu}) {
 
       {(menu?.items || []).map((item) => {
         return(
-          // <Link key={item.id} target={item.target} to={item.url} className="text-xs lowercase text-gray-dark hover:underline mx-4 tracking-wider">
-          //   {item.title}
-          // </Link>
           <ArrowLink direction='right' to={item.url} label={item.title} classes='lowercase' blank={true} />
         )
       })}

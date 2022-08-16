@@ -1,4 +1,3 @@
-import {Link} from "@shopify/hydrogen/client";
 
 const DEFAULT_CLASSES =
   "block uppercase text-sm text-black bg-green-light transition-colors hover:bg-green-dark p-4 w-full tracking-wider";

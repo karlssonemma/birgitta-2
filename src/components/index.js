@@ -1,4 +1,3 @@
-export * from './account/index';
 export * from './cards/index';
 export * from './cart/index';
 export * from './elements/index';

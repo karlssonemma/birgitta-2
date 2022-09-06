@@ -16,7 +16,7 @@ import {
 import {MEDIA_FRAGMENT} from '~/lib/fragments';
 import {NotFound, Layout} from '~/components/index.server';
 
-import ProductOptions from '~/components';
+import ProductOptions from '../../components/ProductOptions.client';
 import NoImage from '../../components/NoImage';
 import Gallery from '../../components/Gallery.client';
 
@@ -84,18 +84,16 @@ export default function Product() {
           </section>
           <section className="md:w-1/2">
                 
-          {/* DIV FØR ANNAT GALLERI */}
-          {/* <div className="mt-5 mb-8 md:w-1/2 relative"> */}
+          
             <div className="mt-6 mb-12 relative w-full max-h-max p-8">
              
                 <h1 className="text-2xl tracking-wide text-black font-serif pb-2">{title}</h1>
                 <ProductPrice data={product} valueType="max" className="tracking-wide text-md text-black max-w-fit mb-6" />
                 <p className="max-w-fit uppercase mb-3 pb-1 text-xs text-black border-b border-black tracking-wider">Description</p>
                 <p className="font-sans font-light pb-6 text-black text-base tracking-wide">{description}</p>
-            <ProductOptions />
-            
-                        
+            <ProductOptions />        
             </div>
+
               <div className="hidden md:block">
                 {
                   rightCol.map(img => <Image key={img.id} data={img.image} className="pb-16" />)

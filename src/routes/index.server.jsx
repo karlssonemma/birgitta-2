@@ -20,7 +20,6 @@ import {Layout, ProductSwimlane} from '~/components/index.server';
 
 import ArrowIcon from '../components/ArrowIcon';
 import FeaturedSection from '../components/FeaturedSection.client';
-// import Layout from '../components/Layout.server';
 
 
 export default function Homepage() {

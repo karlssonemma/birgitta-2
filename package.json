@@ -4,9 +4,6 @@
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
-  "engines": {
-    "node": "16.x"
-  },
   "scripts": {
     "dev": "shopify hydrogen dev",
     "build": "shopify hydrogen build",

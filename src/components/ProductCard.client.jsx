@@ -42,7 +42,7 @@ export default function ProductCard({product}) {
           <Image
             className="object-cover aspect-square mb-2 group-hover:brightness-90 transition-all"
             data={selectedVariant.image}
-            alt={selectedVariant.image.altText}
+            alt={selectedVariant.image.altText ? selectedVariant.image.altText : "Product image"}
           />
         ) : <NoImage />}
       <div className="relative my-8">

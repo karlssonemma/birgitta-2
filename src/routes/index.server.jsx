@@ -62,9 +62,7 @@ export default function Homepage() {
   const collection = featuredCollection.collection;
   const products = flattenConnection(collection.products);
   const page = data.page;
-  
-  console.log("PAGE", page)
-  // const {heroBanners, featuredCollections, featuredProducts} = data;
+    // const {heroBanners, featuredCollections, featuredProducts} = data;
 
 
 
@@ -78,16 +76,15 @@ export default function Homepage() {
     <Layout>
       <Suspense>
         {/* <SeoForHomepage /> */}
-        <div className='relative min-h-screen text-black'>
+        <div className='h-max md:h-[calc(100vh-8rem)] text-black flex flex-col-reverse md:flex-row lg:justify-start items-center gap-24'>
           <Image 
             data={page.image.reference.image}
             width={2000}
             height={2000}
-            className='w-screen relative z-20 object-cover object-center -top-40'
-            style={{left: 'calc(-50vw + 50%)', maxWidth: 'inherit', maxHeight: 'calc(100vh + 40px)'}}
+            className='lg:w-1/3 md:w-1/2 h-auto max-h-full object-cover'
           />
           
-          <div className='absolute w-full md:w-1/3 z-30 md:top-40 md:right-32'>
+          <div className='h-[calc(100vh-8rem)] flex flex-col md:block justify-center md:h-auto md:w-1/2 lg:w-1/3 py-12'>
             <h1 className='text-5xl mb-4 font-serif tracking-wider opacity-0 animate-[fadeUp_0.5s_ease-in-out_1.2s_forwards]'>{page.title.value}</h1>
             <p className='font-light font-sans mb-4 tracking-wider opacity-0 animate-[fadeUp_0.5s_ease-in-out_1.4s_forwards]'>{page.bodyText.value}</p>
             <LinkToShop />

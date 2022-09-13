@@ -52,7 +52,7 @@ function MobileHeader({openMenu}) {
   const {totalQuantity} = useCart()
 
   return (
-    <header role="banner" className="lg:hidden relative h-max w-full max-w-[100vw] flex flex-row justify-between items-center z-40 py-6 px-6 md:px-24 bg-gray-light">
+    <header role="banner" className="lg:hidden relative h-32 min-h-max w-full max-w-[100vw] flex flex-row justify-between items-center z-40 py-6 px-6 md:px-24 bg-gray-light">
 
       <Link
         className="font-black font-serif uppercase text-3xl tracking-widest overflow-hidden"
@@ -81,7 +81,7 @@ function DesktopHeader({menu}) {
   const {totalQuantity} = useCart();
   
   return (
-    <header role="banner" className="hidden lg:flex relative h-max w-full max-w-[100vw] flex-row justify-between items-center z-40 py-6 px-6 md:px-24 bg-gray-light">
+    <header role="banner" className="hidden lg:flex relative h-32 min-h-max w-full max-w-[100vw] flex-row justify-between items-center z-40 py-6 px-6 md:px-24 bg-gray-light">
         <Link to="/">
           <Logo />
         </Link>

@@ -51,7 +51,6 @@ export default function Gallery({media}) {
             data={med}
             options={{
               height: "485",
-              crop: "center",
             }}
             alt={med.image.altText}
             // {...extraProps}

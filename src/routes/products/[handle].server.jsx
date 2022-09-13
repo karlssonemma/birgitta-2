@@ -86,7 +86,7 @@ export default function Product() {
           <section className="md:w-1/2">
                 
           
-            <div className="mt-6 mb-12 relative w-full max-h-max p-8">
+            <div className="mt-6 mb-12 relative w-full max-h-max md:p-8">
              
                 <h1 className="text-2xl tracking-wide text-black font-serif pb-2">{title}</h1>
                 <ProductPrice data={product} valueType="max" className="tracking-wide text-md text-black max-w-fit mb-6" />

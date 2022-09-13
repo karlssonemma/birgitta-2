@@ -13,7 +13,6 @@ export default function Cart() {
     }
   })
 
-  console.log("INFO ==>", data)
 
   return (
     <Layout>

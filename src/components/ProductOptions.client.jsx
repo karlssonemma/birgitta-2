@@ -58,9 +58,9 @@ export default function ProductOptions() {
 function CheckedIcon() {
   return(
     <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="13" cy="13" r="12.25" stroke="black" stroke-width="1"/>
-    <line x1="7.15631" y1="13.2258" x2="11.1563" y2="17.2258" stroke="black" stroke-width="1"/>
-    <line x1="20.0342" y1="9.40839" x2="11.1562" y2="18.2864" stroke="black" stroke-width="1"/>
+    <circle cx="13" cy="13" r="12.25" stroke="black" strokeWidth="1"/>
+    <line x1="7.15631" y1="13.2258" x2="11.1563" y2="17.2258" stroke="black" strokeWidth="1"/>
+    <line x1="20.0342" y1="9.40839" x2="11.1562" y2="18.2864" stroke="black" strokeWidth="1"/>
     </svg>
 
   )
@@ -69,7 +69,7 @@ function CheckedIcon() {
 function NotCheckedIcon() {
   return(
     <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="13" cy="13" r="12.25" stroke="black" stroke-width="1"/>
+    <circle cx="13" cy="13" r="12.25" stroke="black" strokeWidth="1"/>
     </svg>
   )
 }

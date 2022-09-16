@@ -3,7 +3,8 @@ import {
     Image, 
     useShopQuery, 
     useLocalization,
-    gql
+    gql,
+    Seo
 } from "@shopify/hydrogen";
 import { Layout } from "../components/index.server";
 import { Suspense } from "react";
@@ -32,6 +33,12 @@ export default function InfoPage() {
     return(
         <Layout>
             <Suspense>
+                <Seo
+                    type="page"
+                    data={{
+                        title: 'Info',
+                    }}
+                />
                 <section id="infoSection" className="my-6 text-black font-light md:py-16 m-auto flex flex-col-reverse md:flex-row gap-[10%] opacity-0 animate-[fadeUp_0.5s_ease-in-out_1.2s_forwards]">
                     <section className="md:w-[40%]">
                         {postsWithImage && postsWithImage.map(post => {

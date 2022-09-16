@@ -2,7 +2,8 @@ import {
     useLocalization,
     useShopQuery,
     gql,
-    Image
+    Image,
+    Seo
   } from '@shopify/hydrogen';
 import {Suspense} from 'react';
 import {NotFound, Layout} from '~/components/index.server';
@@ -37,6 +38,7 @@ export default function AboutPage({params}) {
 
     return(
         <Layout>
+          <Seo type="page" data={page} />
             <div className={`flex flex-col md:flex-row m-auto gap-10 py-10 text-black`}>
                 <Image 
                     data={page.image.reference.image} 

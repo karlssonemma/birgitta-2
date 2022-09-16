@@ -28,14 +28,6 @@ export default function Homepage() {
     country: {isoCode: countryCode},
   } = useLocalization();
 
-  // const {data} = useShopQuery({
-  //   query: QUERY,
-  //   variables: {
-  //     language: languageCode,
-  //     country: countryCode,
-  //   },
-  //   preload: true,
-  // });
 
   const {data} = useShopQuery({
     query: QUERY, 
@@ -62,7 +54,6 @@ export default function Homepage() {
   const collection = featuredCollection.collection;
   const products = flattenConnection(collection.products);
   const page = data.page;
-    // const {heroBanners, featuredCollections, featuredProducts} = data;
 
 
 
@@ -75,7 +66,12 @@ export default function Homepage() {
   return (
     <Layout>
       <Suspense>
-        {/* <SeoForHomepage /> */}
+        <Seo 
+          type="page" 
+          data={{
+            title: "Home"
+          }} 
+        />
         <div className='h-max md:h-[calc(100vh-8rem)] text-black flex flex-col-reverse md:flex-row lg:justify-start items-center gap-24'>
           <Image 
             data={page.image.reference.image}

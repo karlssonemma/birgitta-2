@@ -31,7 +31,7 @@ const FeaturedSection = ({collection, products}) => {
   
 
     return(
-      <article className="w-screen relative left-[50%] translate-x-[-50%] py-20 px-6" id="featuredSection">
+      <article className="w-screen relative left-[50%] translate-x-[-50%] py-36 px-6" id="featuredSection">
         <div className={`flex justify-between py-6 max-w-5xl m-auto overflow-hidden opacity-0 translate-y-[30px] ${inView && "animate-[fadeUp_0.7s_ease-in-out_forwards]"}`}>
           <h2 className="text-3xl text-black font-serif">{collection.description}</h2>
           <div>
@@ -47,9 +47,8 @@ const FeaturedSection = ({collection, products}) => {
                   <Link to={`products/${product.handle}`}>
                     <Image 
                       data={product.featuredImage}
-                      className="h-[400px] w-full object-cover group-hover:brightness-90 transition-all"
-                      // alt={product.featuredImage.altText}
-                      alt="bild"
+                      className="aspect-square w-full object-cover group-hover:brightness-90 transition-all"
+                      alt={product.featuredImage.altText}
                       width={1200}
                       height={1200}
                     />

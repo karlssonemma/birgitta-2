@@ -10,7 +10,7 @@ export function NotFound({response, type = 'page'}) {
 
   return (
     <Layout>
-      <section className="min-h-[600px] flex flex-col justify-center">
+      <section className="min-h-[600px] flex flex-col justify-center text-black">
         <h1 className="text-6xl mb-8">404</h1>
         <p className="mb-8 font-serif">We can't seem to find the page you're looking for :(</p>
         <ArrowLink to="/" direction="right" label="home" />

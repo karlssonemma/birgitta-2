@@ -1,4 +1,5 @@
 import {useLocalization, useShopQuery, CacheLong, gql} from '@shopify/hydrogen';
+import { Suspense } from 'react';
 
 import {Header} from '~/components';
 import {Footer} from '~/components/index.server';
@@ -46,6 +47,7 @@ export function Layout({children}) {
     ? parseMenu(data.footerMenu, customPrefixes)
     : undefined;
 
+
   return (
     <>
       <div className="flex flex-col min-h-screen">
@@ -54,12 +56,16 @@ export function Layout({children}) {
             Skip to content
           </a>
         </div>
-        <Header title={shopName} menu={headerMenu} />
+        <Suspense fallback={<p>head</p>}>
+          <Header title={shopName} menu={headerMenu} />
+        </Suspense>
         <main role="main" id="mainContent" className="flex-grow bg-gray-light px-6 md:px-24 min-h-screen">
           {children}
         </main>
       </div>
-      <Footer menu={footerMenu} />
+      <Suspense fallback={<p>footer</p>}>
+        <Footer menu={footerMenu} />
+      </Suspense>
     </>
   );
 }
@@ -73,7 +79,7 @@ const SHOP_QUERY = gql`
     type
     url
   }
-  query layout(
+  query layoutMenus(
     $language: LanguageCode
     $headerMenuHandle: String!
     $footerMenuHandle: String!

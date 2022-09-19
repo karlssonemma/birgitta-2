@@ -25,7 +25,7 @@ function App({routes, request}) {
   return (
     <Suspense fallback={<HeaderFallback isHome={isHome} />}>
       <ShopifyProvider>
-        <LocalizationProvider countryCode={countryCode}>
+        {/* <LocalizationProvider countryCode={countryCode}> */}
           <CartProvider countryCode={countryCode}>
             <Suspense>
               <DefaultSeo />
@@ -41,7 +41,7 @@ function App({routes, request}) {
           <PerformanceMetrics />
           {import.meta.env.DEV && <PerformanceMetricsDebug />}
           <ShopifyAnalytics />
-        </LocalizationProvider>
+        {/* </LocalizationProvider> */}
       </ShopifyProvider>
     </Suspense>
   );

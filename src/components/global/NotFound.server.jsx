@@ -1,5 +1,7 @@
 import {Layout} from '~/components/index.server';
 import ArrowLink from '../ArrowLink';
+import { Seo } from '@shopify/hydrogen';
+import { Suspense } from 'react';
 
 export function NotFound({response, type = 'page'}) {
   if (response) {
@@ -10,6 +12,14 @@ export function NotFound({response, type = 'page'}) {
 
   return (
     <Layout>
+      <Suspense>
+        <Seo
+            type="page"
+            data={{
+                title: '404',
+            }}
+        />
+      </Suspense>
       <section className="min-h-[600px] flex flex-col justify-center text-black">
         <h1 className="text-6xl mb-8">404</h1>
         <p className="mb-8 font-serif">We can't seem to find the page you're looking for :(</p>

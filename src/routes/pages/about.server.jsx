@@ -49,7 +49,7 @@ export default function AboutPage({params}) {
                     className="w-[70vw] md:w-1/2 h-auto rounded-tr-[100px] object-cover"
                 />
                 <section className="md:w-1/2 md:pt-20">
-                    <h1 className="text-3xl md:text-4xl font-serif tracking-wide">{page.quote.value}</h1>
+                    <h1 className="text-3xl md:text-4xl py-6 font-serif tracking-wide">{page.quote.value}</h1>
                     <div
                         dangerouslySetInnerHTML={{__html: page.body}}
                         className="font-light"

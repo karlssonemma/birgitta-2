@@ -4,6 +4,7 @@ import { Suspense } from 'react';
 import {Header} from '~/components';
 import {Footer} from '~/components/index.server';
 import {parseMenu} from '~/lib/utils';
+import { HeaderFallback } from '../HeaderFallback';
 
 const HEADER_MENU_HANDLE = 'main-menu';
 const FOOTER_MENU_HANDLE = 'footer';

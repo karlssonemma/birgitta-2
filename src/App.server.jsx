@@ -8,7 +8,6 @@ import {
   Router,
   ShopifyAnalytics,
   ShopifyProvider,
-  LocalizationProvider,
   CartProvider,
 } from '@shopify/hydrogen';
 

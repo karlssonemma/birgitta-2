@@ -38,7 +38,9 @@ export default function AboutPage({params}) {
 
     return(
         <Layout>
-          <Seo type="page" data={page} />
+          <Suspense>
+            <Seo type="page" data={page} />
+          </Suspense>
             <div className={`flex flex-col md:flex-row m-auto gap-10 py-10 text-black`}>
                 <Image 
                     data={page.image.reference.image} 

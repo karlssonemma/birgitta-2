@@ -96,30 +96,6 @@ const LinkToShop = () => {
   )
 }
 
-function SeoForHomepage() {
-  const {
-    data: {
-      shop: {title, description},
-    },
-  } = useShopQuery({
-    query: HOMEPAGE_SEO_QUERY,
-    cache: CacheLong(),
-    preload: true,
-  });
-
-
-  return (
-    <Seo
-      type="homepage"
-      data={{
-        title,
-        description,
-        titleTemplate: '%s · Home',
-      }}
-    />
-  );
-}
-
 
 const QUERY = gql`
 query PageDetails(

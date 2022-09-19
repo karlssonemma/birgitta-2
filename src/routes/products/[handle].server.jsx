@@ -56,7 +56,7 @@ export default function Product() {
   });
 
   const {media, title, vendor, description, id} = product;
-  const {shippingPolicy, refundPolicy} = shop;
+  // const {shippingPolicy, refundPolicy} = shop;
 
 
   const images = flattenConnection(product.media)

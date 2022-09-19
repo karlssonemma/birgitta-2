@@ -13,7 +13,6 @@ export default function Cart() {
     }
   })
 
-
   return (
     <Layout>
       <Suspense>

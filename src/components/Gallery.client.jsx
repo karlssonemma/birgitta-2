@@ -1,5 +1,4 @@
 import { MediaFile, Image, useProductOptions} from "@shopify/hydrogen/client";
-import { useState } from "react";
 import NoImage from "../components/NoImage";
 
 /**

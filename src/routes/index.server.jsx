@@ -71,8 +71,8 @@ export default function Homepage() {
         <div className='h-max md:h-[calc(100vh-8rem)] text-black flex flex-col-reverse md:flex-row lg:justify-start items-center gap-24'>
           <Image 
             data={page.image.reference.image}
-            width={2000}
-            height={2000}
+            width={1000}
+            height={1000}
             className='lg:w-1/3 md:w-1/2 h-auto max-h-full object-cover'
           />
           

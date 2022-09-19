@@ -42,6 +42,7 @@ export default function Gallery({media}) {
       />
       
       {galleryMedia.map((med) => {
+        console.log("MEDIA", med)
  
         return (
           <MediaFile
@@ -52,7 +53,7 @@ export default function Gallery({media}) {
             options={{
               height: "485",
             }}
-            alt={med.image.altText}
+            // alt={med.image.altText}
             // {...extraProps}
           />
         );

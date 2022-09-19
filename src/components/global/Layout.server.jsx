@@ -57,16 +57,12 @@ export function Layout({children}) {
             Skip to content
           </a>
         </div>
-        <Suspense fallback={<p>head</p>}>
-          <Header title={shopName} menu={headerMenu} />
-        </Suspense>
+        <Header title={shopName} menu={headerMenu} />
         <main role="main" id="mainContent" className="flex-grow bg-gray-light px-6 md:px-24 min-h-screen">
           {children}
         </main>
       </div>
-      <Suspense fallback={<p>footer</p>}>
-        <Footer menu={footerMenu} />
-      </Suspense>
+      <Footer menu={footerMenu} />
     </>
   );
 }

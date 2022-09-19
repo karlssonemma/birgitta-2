@@ -32,13 +32,13 @@ const FeaturedSection = ({collection, products}) => {
 
     return(
       <article className="w-screen relative left-[50%] translate-x-[-50%] py-36 px-6" id="featuredSection">
-        <div className={`flex justify-between py-6 max-w-5xl m-auto overflow-hidden opacity-0 translate-y-[30px] ${inView && "animate-[fadeUp_0.7s_ease-in-out_forwards]"}`}>
+        <div className={`flex justify-between py-6 max-w-5xl m-auto overflow-hidden`}>
           <h2 className="text-3xl text-black font-serif">{collection.description}</h2>
           <div>
             <ArrowLink to="/products" direction="right" label="view all items" />
           </div>
         </div>
-        <ul className={`flex justify-between overflow-x-scroll no-scrollbar scroll-snap-x scroll-smooth gap-6 m-auto max-w-5xl translate-y-[30px] opacity-0 ${inView && "animate-[fadeUp_0.7s_ease-in-out_forwards]"}`}>
+        <ul className={`flex justify-between overflow-x-scroll no-scrollbar scroll-snap-x scroll-smooth gap-6 m-auto max-w-5xl`}>
 
           {products.map((product) => {  
             console.log(product)

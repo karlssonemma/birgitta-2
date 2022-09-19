@@ -39,7 +39,7 @@ export default function InfoPage() {
                         title: 'Info',
                     }}
                 />
-                <section id="infoSection" className="my-6 text-black font-light md:py-16 m-auto flex flex-col-reverse md:flex-row gap-[10%] opacity-0 animate-[fadeUp_0.5s_ease-in-out_1.2s_forwards]">
+                <section id="infoSection" className="my-6 text-black font-light md:py-16 m-auto flex flex-col-reverse md:flex-row gap-[10%]">
                     <section className="md:w-[40%]">
                         {postsWithImage && postsWithImage.map(post => {
                             return(

@@ -36,7 +36,7 @@ export default function ProductCard({product}) {
   }
 
   return (
-    <div id={product.id} className={`block text-md mb-4 relative group transition duration-500 ease-in-out ${cardInView ? "translate-y-0 opacity-1" : "translate-y-5 opacity-0"}`}>
+    <div id={product.id} className={`block text-md mb-4 relative group transition duration-500 ease-in-out ${cardInView ? "translate-y-0 opacity-1" : "translate-y-3 opacity-0"}`}>
     <Link to={`/products/${product.handle}`}>
         {selectedVariant.image ? (
           <Image

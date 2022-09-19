@@ -84,11 +84,11 @@ module.exports = {
           '100%': { transform: 'translateY(0px)' }
         },
         fadeUp: {
-          '0%': { transform: 'translateY(15px)', opacity: '0%' },
+          '0%': { transform: 'translateY(12px)', opacity: '0%' },
           '100%': { transform: 'translateY(0px)', opacity: '100%' }
         },
         slideUp: {
-          '0%': { transform: 'translateY(30px)' },
+          '0%': { transform: 'translateY(15px)' },
           '100%': { transform: 'translateY(0px)' }
         },
         fadeInRight: {
@@ -108,7 +108,7 @@ module.exports = {
       animation: {
         textOut: 'textOut 0.5s ease-out 0.5s forwards',
         textIn: 'textIn 0.5s ease-out 1s forwards',
-        fadeIn: 'fadeIn 0.3s ease-out 0.2s forwards'
+        fadeIn: 'fadeIn 0.2s ease-out 0.2s forwards'
       }
     },
   },

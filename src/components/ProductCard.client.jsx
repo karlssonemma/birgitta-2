@@ -40,7 +40,7 @@ export default function ProductCard({product}) {
     <Link to={`/products/${product.handle}`}>
         {selectedVariant.image ? (
           <Image
-            className="object-cover aspect-square mb-2 group-hover:brightness-90 transition-all"
+            className="object-cover aspect-square mb-2 group-hover:brightness-75 transition-all"
             data={selectedVariant.image}
             alt={selectedVariant.image.altText ? selectedVariant.image.altText : "Product image"}
           />

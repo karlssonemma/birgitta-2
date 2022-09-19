@@ -47,7 +47,7 @@ const FeaturedSection = ({collection, products}) => {
                   <Link to={`products/${product.handle}`}>
                     <Image 
                       data={product.featuredImage}
-                      className="aspect-square w-full object-cover group-hover:brightness-90 transition-all"
+                      className="aspect-square w-full object-cover group-hover:brightness-75 transition-all"
                       alt={product.featuredImage.altText}
                       width={1200}
                       height={1200}

@@ -1,11 +1,11 @@
 export function HeaderFallback({isHome}) {
   const styles = isHome
-    ? 'bg-gray-light text-contrast shadow-darkHeader'
+    ? 'bg-gray-light text-contrast'
     : 'bg-gray-light text-primary';
   return (
     <header
       role="banner"
-      className={`${styles} flex h-nav items-center backdrop-blur-lg z-40 top-0 justify-between w-full leading-none gap-8 px-6 md:px-24 py-8`}
+      className={`${styles} flex h-nav items-center z-40 top-0 justify-between w-full leading-none gap-8 px-6 md:px-24 py-8`}
     >
       <Box isHome={isHome} wide={true} />
       <div className="flex space-x-4">

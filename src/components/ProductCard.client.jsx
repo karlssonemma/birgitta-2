@@ -1,4 +1,4 @@
-import {flattenConnection, Image, Link} from "@shopify/hydrogen/client";
+import {Image, Link} from "@shopify/hydrogen/client";
 import { useEffect, useState } from "react";
 import ArrowIcon from "./ArrowIcon";
 
@@ -47,10 +47,6 @@ export default function ProductCard({product}) {
         ) : <NoImage />}
       <div className="relative my-8">
         <p className="mb-2 text-black font-serif text-xl tracking-wide group-hover:underline">{product.title}</p>
-
-          {/* {selectedVariant.compareAtPriceV2 && (
-            <MoneyCompareAtPrice money={selectedVariant.compareAtPriceV2} className='font-light' />
-          )} */}
           <MoneyPrice money={selectedVariant.priceV2} />
         <ArrowIcon classes="rotate-180 absolute top-2 right-0"/>
       </div>

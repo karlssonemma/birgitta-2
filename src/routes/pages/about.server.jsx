@@ -34,7 +34,7 @@ export default function AboutPage({params}) {
     }
 
     //add to div for animation
-    let animationClasses = 'opacity-0 animate-[fadeUp_0.5s_ease-in-out_1.2s_forwards]'
+    // let animationClasses = 'opacity-0 animate-[fadeUp_0.5s_ease-in-out_1.2s_forwards]'
 
     return(
         <Layout>

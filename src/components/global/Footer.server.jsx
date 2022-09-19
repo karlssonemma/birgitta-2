@@ -34,9 +34,9 @@ export function Footer({menu}) {
 
   return (
     <footer
-      className="w-screen h-max py-10 px-6 md:px-24 bottom-0 left-0 relative flex flex-col md:flex-row justify-between items-center bg-gray-medium"
+      className="w-screen h-max py-10 px-6 md:px-24 bottom-0 left-0 relative flex flex-col md:flex-row justify-between items-center bg-gray-light"
     >
-      {/* <FooterMenu menu={menu} /> */}
+      <FooterMenu menu={menu} />
 
       <section className="flex flex-col pt-6">
         <CountrySelector />

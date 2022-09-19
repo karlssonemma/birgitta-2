@@ -41,14 +41,14 @@ export default function AboutPage({params}) {
           <Suspense>
             <Seo type="page" data={page} />
           </Suspense>
-            <div className={`flex flex-col md:flex-row m-auto gap-10 py-10 text-black`}>
+            <div className={`flex flex-col md:flex-row m-auto gap-10 py-10 pb-20 text-black`}>
                 <Image 
                     data={page.image.reference.image} 
                     width="800px" 
                     height="400px"
-                    className="w-[70vw] md:w-1/2 h-auto rounded-tr-[100px] object-cover"
+                    className="w-[70vw] md:w-1/2 h-auto object-cover"
                 />
-                <section className="md:w-1/2 md:pt-20">
+                <section className="md:w-1/2">
                     <h1 className="text-3xl md:text-4xl py-6 font-serif tracking-wide">{page.quote.value}</h1>
                     <div
                         dangerouslySetInnerHTML={{__html: page.body}}

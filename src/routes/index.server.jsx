@@ -73,12 +73,12 @@ export default function Homepage() {
             data={page.image.reference.image}
             width={1000}
             height={1000}
-            className='lg:w-1/3 md:w-1/2 h-auto max-h-full object-cover'
+            className='lg:w-1/3 md:w-1/2 h-auto max-h-full opacity-0 object-cover animate-fadeIn'
           />
           
           <div className='h-[calc(100vh-8rem)] flex flex-col md:block justify-center md:h-auto md:w-1/2 lg:w-1/3 py-12'>
-            <h1 className='text-5xl mb-4 font-serif tracking-wider opacity-0 animate-[fadeUp_0.5s_ease-in-out_1.2s_forwards]'>{page.title.value}</h1>
-            <p className='font-light font-sans mb-4 tracking-wider opacity-0 animate-[fadeUp_0.5s_ease-in-out_1.4s_forwards]'>{page.bodyText.value}</p>
+            <h1 className='text-5xl mb-4 font-serif tracking-wider opacity-0 animate-[fadeUp_0.6s_ease-in-out_0.3s_forwards]'>{page.title.value}</h1>
+            <p className='font-light font-sans mb-4 tracking-wider opacity-0 animate-[fadeUp_0.6s_ease-in-out_0.4s_forwards]'>{page.bodyText.value}</p>
             <LinkToShop />
           </div>
         </div>
@@ -90,7 +90,7 @@ export default function Homepage() {
 
 const LinkToShop = () => {
   return(
-    <Link to='/collections/main' className='group text-lg text-green-dark block mt-4 hover:underline font-bold tracking-wider transition-colors opacity-0 animate-[fadeUp_0.5s_ease-in-out_1.6s_forwards]'>Go to shop
+    <Link to='/collections/main' className='group text-lg text-green-dark block mt-4 hover:underline font-bold tracking-wider transition-colors opacity-0 animate-[fadeUp_0.6s_ease-in-out_0.5s_forwards]'>Go to shop
       <ArrowIcon classes='rotate-180 stroke-green-dark ml-6 transition-colors scale-[150%]' />
     </Link>
   )

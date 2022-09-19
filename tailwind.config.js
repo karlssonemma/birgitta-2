@@ -84,7 +84,7 @@ module.exports = {
           '100%': { transform: 'translateY(0px)' }
         },
         fadeUp: {
-          '0%': { transform: 'translateY(30px)', opacity: '0%' },
+          '0%': { transform: 'translateY(15px)', opacity: '0%' },
           '100%': { transform: 'translateY(0px)', opacity: '100%' }
         },
         slideUp: {
@@ -98,11 +98,17 @@ module.exports = {
         zoomIn: {
           '0%': { transform: 'scale(80%)', opacity: '0%' },
           '100%': { transform: 'scale(100%)', opacity: '100%' }
-        }
+        },
+        fadeIn: {
+          '0%': { opacity: '0%' },
+          '100%': { opacity: '100%' }
+        },
+        
       },
       animation: {
         textOut: 'textOut 0.5s ease-out 0.5s forwards',
         textIn: 'textIn 0.5s ease-out 1s forwards',
+        fadeIn: 'fadeIn 0.3s ease-out 0.2s forwards'
       }
     },
   },

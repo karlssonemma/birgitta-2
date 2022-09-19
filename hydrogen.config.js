@@ -5,7 +5,7 @@ export default defineConfig({
     defaultCountryCode: 'US',
     defaultLanguageCode: 'EN',
     storeDomain: import.meta.env.PUBLIC_STORE_DOMAIN,
-    storefrontToken: Oxygen?.env?.PRIVATE_STOREFRONT_TOKEN,
+    storefrontToken: process.env.PRIVATE_STOREFRONT_TOKEN,
     storefrontApiVersion: import.meta.env.PUBLIC_STOREFRONT_API_VERSION
   },
   session: CookieSessionStorage('__session', {

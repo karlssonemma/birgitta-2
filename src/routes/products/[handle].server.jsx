@@ -81,7 +81,7 @@ export default function Product() {
 
         <div className="flex flex-col-reverse md:flex-row gap-16 mt-2">
           <section className="hidden md:block md:w-1/2">
-            {leftCol.length > 0 ? leftCol.map(img => <Image key={img.id} width={1000} height={1000} loaderOptions={{scale: 2}} data={img.image} className="pb-16" alt={img.image.altText ? img.image.altText : "Product image"} />) : <NoImage />}
+            {leftCol.length > 0 ? leftCol.map(img => <Image key={img.id} width={500} height={500} loaderOptions={{scale: 2}} data={img.image} className="pb-16" alt={img.image.altText ? img.image.altText : "Product image"} />) : <NoImage />}
           </section>
           <section className="md:w-1/2">
                 
@@ -97,7 +97,7 @@ export default function Product() {
 
               <div className="hidden md:block">
                 {
-                  rightCol.map(img => <Image key={img.id} width={1000} height={1000} loaderOptions={{scale: 2}} data={img.image} alt={img.image.altText ? img.image.altText : "Product image"} className="pb-16" />)
+                  rightCol.map(img => <Image key={img.id} width={500} height={500} loaderOptions={{scale: 2}} data={img.image} alt={img.image.altText ? img.image.altText : "Product image"} className="pb-16" />)
                 }
               </div>
           </section> 

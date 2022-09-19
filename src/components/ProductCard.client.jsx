@@ -43,6 +43,9 @@ export default function ProductCard({product}) {
             className="object-cover aspect-square mb-2 group-hover:brightness-75 transition-all"
             data={selectedVariant.image}
             alt={selectedVariant.image.altText ? selectedVariant.image.altText : "Product image"}
+            loaderOptions={{scale: 2}}
+            width={500}
+            height={500}
           />
         ) : <NoImage />}
       <div className="relative my-8">

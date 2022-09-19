@@ -72,7 +72,7 @@ export default function Homepage() {
             title: "Home"
           }} 
         />
-        <div className='h-max md:h-[calc(100vh-8rem)] text-black flex flex-col-reverse md:flex-row lg:justify-start items-center gap-24'>
+        <div className='h-max md:h-[calc(100vh-8rem)] text-blue-200 flex flex-col-reverse md:flex-row lg:justify-start items-center gap-24'>
           <Image 
             data={page.image.reference.image}
             width={2000}

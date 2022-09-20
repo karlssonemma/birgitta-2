@@ -23,7 +23,7 @@ function App({routes, request}) {
 
   return (
     <Suspense fallback={<HeaderFallback isHome={isHome} />}>
-      <ShopifyProvider>
+      <ShopifyProvider countryCode={countryCode}>
         {/* <LocalizationProvider countryCode={countryCode}> */}
           <CartProvider countryCode={countryCode}>
             <Suspense>

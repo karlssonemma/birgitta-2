@@ -14,6 +14,7 @@ export function DefaultSeo() {
     preload: '*',
   });
 
+
   return (
     // @ts-ignore TODO: Fix types
     <Seo

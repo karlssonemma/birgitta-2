@@ -33,7 +33,7 @@ export function CartDetails({onClose, data}) {
         </ul>
       </section>
 
-      <section aria-labelledby="summary-heading" className="w-full md:w-1/2 p-6 flex flex-col">
+      <section aria-labelledby="summary-heading" className="w-full md:w-1/2 md:p-6 flex flex-col">
         <article className="mb-8 text-black">
           <h2 className="mb-2">{data.blog.articleByHandle.title}</h2>
           <p className="text-sm font-light">{data.blog.articleByHandle.excerpt}</p>

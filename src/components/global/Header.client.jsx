@@ -54,7 +54,6 @@ function MobileHeader({openMenu}) {
 
   return (
     <header role="banner" className="lg:hidden relative h-32 min-h-max w-full max-w-[100vw] flex flex-row justify-between items-center z-40 py-6 px-6 md:px-24 bg-gray-light">
-      <CountrySelector />
       <Link
         className="font-black font-serif uppercase text-3xl tracking-widest overflow-hidden"
         to="/"

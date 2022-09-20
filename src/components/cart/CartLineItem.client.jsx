@@ -10,9 +10,10 @@ import {
 
 import CloseIcon from '../CloseIcon';
 import MoneyPrice from '../MoneyPrice.client';
+import NoImage from '../NoImage';
 
 export function CartLineItem() {
-  const {id: lineId, quantity, merchandise} = useCartLine();
+  const {id: lineId, merchandise, cost, quantity} = useCartLine();
 
   return (
     <li key={lineId} className="flex h-40 p-6 bg-white mb-4 text-black">
@@ -33,7 +34,7 @@ export function CartLineItem() {
             {merchandise.product.title}
           </Link>
           <div>
-            <MoneyPrice money={merchandise.priceV2} />
+            <MoneyPrice money={cost.totalAmount} />
           </div>
           <p className="tracking-wide">{merchandise.selectedOptions[0].value}</p>
           <CartLineQuantityAdjust lineId={lineId} quantity={quantity} />
@@ -43,7 +44,7 @@ export function CartLineItem() {
           <CartLineQuantityAdjustButton adjust="remove">
             <CloseIcon />
           </CartLineQuantityAdjustButton>
-          <CartLinePrice as="span" />
+          {/* <CartLinePrice as="span" /> */}
         </div>
 
     </li>

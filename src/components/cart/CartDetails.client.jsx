@@ -59,10 +59,10 @@ function OrderSummary() {
           <MoneyPrice money={cost.subtotalAmount} />
       </div>
 
-      <div className="flex flex-row justify-between pb-2 text-md">
+      {/* <div className="flex flex-row justify-between pb-2 text-md">
           <span>Taxes</span>
           {(cost?.totalTaxAmount) ? <MoneyPrice money={cost.totalTaxAmount} /> : <p>-</p>}
-      </div>
+      </div> */}
       
       <div className="flex flex-row justify-between pb-8 text-xl">
           <span>Total</span>

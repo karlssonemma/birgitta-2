@@ -1,7 +1,7 @@
 import {
   useCart,
   CartLineProvider,
-  CartCheckoutButton
+  CartCheckoutButton,
 } from '@shopify/hydrogen';
 
 import {CartLineItem, CartEmpty} from '~/components';

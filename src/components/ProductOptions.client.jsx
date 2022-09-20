@@ -10,11 +10,9 @@ export default function ProductOptions() {
     <div className="mb-6">
       <p className="font-light sr-only">{options[0].name}</p>
       {options.map(({name, values}) => {
-       
         return(
         <form key={name}>
           <p className="max-w-fit uppercase mb-3 pb-1 text-xs text-black border-b border-black tracking-wider">{name}</p>
-          
           {values.map((value) => {
             const checked = selectedOptions[name] === value;
              const id = `option-${name}-${value}`
@@ -42,10 +40,10 @@ export default function ProductOptions() {
             )
           })}
           <AddToCartButton
-              variantId={selectedVariant.id}
-              quantity={1}
-              className={`${BUTTON_DEFAULT_CLASS} mt-6`}
-            >
+            variantId={selectedVariant.id}
+            quantity={1}
+            className={`${BUTTON_DEFAULT_CLASS} mt-6`}
+          >
               Add to cart
           </AddToCartButton>
         </form>

@@ -55,8 +55,8 @@ module.exports = {
         mobileGallery: 'calc(100vw - 3rem)',
       },
       fontFamily: {
-        sans: ['"Outfit"', 'sans-serif'],
-        serif: ['"Aleo"', 'serif']
+        sans: ['Outfit', 'sans-serif'],
+        serif: ['Aleo', 'serif']
       },
       fontSize: {
         display: ['var(--font-size-display)', '1.1'],

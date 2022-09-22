@@ -16,3 +16,14 @@
   font-display: swap;
   src: url('/fonts/Outfit-VariableFont_wght.ttf') format('truetype');
 }
+@font-face {
+  font-family: 'Aleo';
+  font-display: swap;
+  src: url('/fonts/Aleo-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Aleo';
+  font-display: swap;
+  font-weight: 300;
+  src: url('/fonts/Aleo-Light.ttf') format('truetype');
+}

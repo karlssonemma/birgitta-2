@@ -56,7 +56,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['"Outfit"', 'sans-serif'],
-        serif: ['Aleo', 'serif']
+        serif: ['"Aleo"', 'serif']
       },
       fontSize: {
         display: ['var(--font-size-display)', '1.1'],

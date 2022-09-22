@@ -25,11 +25,11 @@
   font-family: 'Aleo';
   font-display: swap;
   font-weight: 300;
-  src: local('Aleo'), url('/fonts/Aleo-Light.ttf') format('truetype');
+  src: url('/fonts/Aleo-Light.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Outfit';
   /* font-display: swap; */
   font-weight: 300;
-  src: local('Outfit'), url('/fonts/Outfit-Light.ttf') format('truetype');
+  src: url('/fonts/Outfit-Light.ttf') format('truetype');
 }

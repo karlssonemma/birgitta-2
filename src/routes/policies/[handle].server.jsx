@@ -53,9 +53,11 @@ export default function Policy({params}) {
 
     return(
         <Layout>
-            <section className="text-black">
-                <h1 className="text-lg mb-4">{page.title}</h1>
-                <div dangerouslySetInnerHTML={{__html: page.body}} />
+            <section className="text-black pb-24">
+                <h1 className="text-lg mb-4 font-bold">{page.title}</h1>
+                <div className="text-base tracking-wider">
+                  <div dangerouslySetInnerHTML={{__html: page.body}} />
+                </div>
             </section>
         </Layout>
     )

@@ -33,7 +33,7 @@ const FeaturedSection = ({collection, products}) => {
     return(
       <article className="w-screen relative left-[50%] translate-x-[-50%] py-36 px-6" id="featuredSection">
         <div className={`flex justify-between py-6 max-w-5xl m-auto overflow-hidden`}>
-          <h2 className="text-3xl text-black font-serif">{collection.description}</h2>
+          <h2 className="text-2xl md:text-3xl text-black font-serif">{collection.description}</h2>
           <div>
             <ArrowLink to="/products" direction="right" label="view all items" />
           </div>

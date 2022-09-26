@@ -63,7 +63,7 @@ export function Footer({menu}) {
 const Contact = () => {
   return(
     <section className="w-max flex flex-col justify-between text-gray-dark text-xs leading-loose tracking-wider">
-      <div className="flex flex-col text-center md:text-left">
+      <div className="flex flex-col items-center md:items-start">
         <p className="font-bold">Contact</p>
         <a 
           href="mailto:info@birgittajadenfelt.com" 
@@ -72,7 +72,7 @@ const Contact = () => {
         >
           info@birgittajadenfelt.com
         </a>
-        <a href="https://www.instagram.com/sybiggan" target="_blank" className="pt-1 -translate-x-1">
+        <a href="https://www.instagram.com/sybiggan" target="_blank" className="pt-1 w-max -translate-x-1">
           <InstagramIcon />
         </a>
       </div>

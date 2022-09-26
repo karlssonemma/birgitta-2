@@ -35,12 +35,14 @@ export function Footer({menu}) {
 
   return (
     <footer
-      className="w-screen h-max py-10 px-6 md:px-24 bottom-0 left-0 relative flex flex-col md:flex-row justify-between items-center bg-gray-light"
+      className="w-screen h-max py-10 px-6 md:px-24 bottom-0 left-0 relative flex flex-col md:flex-row justify-between items-center md:items-start bg-gray-light gap-10"
     >
-      <FooterMenu menu={menu} />
-      <FooterInfo />
+      <section className="w-max flex gap-12">
+        <Contact />
+        <FooterMenu menu={menu} />
+      </section>
 
-      <section className="flex flex-col pt-6">
+      <section className="flex flex-col pt-6 md:pt-0">
         <CountrySelector />
         <Cards />
         <small className="text-gray-dark">Copyright &copy; {year}, Developed by&nbsp;
@@ -57,9 +59,26 @@ export function Footer({menu}) {
   );
 }
 
-const FooterInfo = () => {
+const Contact = () => {
   return(
-    <p>Hej</p>
+    <section className="w-max flex flex-col justify-between text-gray-dark text-xs leading-loose tracking-wider">
+      <div className="flex flex-col text-center md:text-left">
+        <p className="font-bold">Contact</p>
+        <a 
+          href="mailto:info@birgittajadenfelt.com" 
+          target="_blank"
+          className="hover:underline"
+        >
+          info@birgittajadenfelt.com
+        </a>
+        <a 
+          href="tel:+46 675 45 45 45"
+          className="hover:underline"
+        >
+          +46 675 45 45 45
+        </a>
+      </div>
+    </section>
   )
 }
 

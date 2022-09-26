@@ -40,9 +40,7 @@ export default function Gallery({media}) {
         className={`${imgWidth} h-full object-cover object-center flex-shrink-0 snap-start`}
       />
       
-      {galleryMedia.map((med) => {
-        console.log("MEDIA", med)
- 
+      {galleryMedia.map((med) => { 
         return (
           <MediaFile
             tabIndex="0"

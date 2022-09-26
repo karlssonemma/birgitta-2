@@ -41,7 +41,6 @@ const FeaturedSection = ({collection, products}) => {
         <ul className={`flex justify-between overflow-x-scroll no-scrollbar scroll-snap-x scroll-smooth gap-6 m-auto max-w-5xl`}>
 
           {products.map((product) => {  
-            console.log(product)
               return(
                 <li key={product.id} className="w-[60vw] max-w-[300px] h-full object-cover object-center flex-shrink-0 md:flex-shrink-1 snap-start group">
                   <Link to={`products/${product.handle}`}>

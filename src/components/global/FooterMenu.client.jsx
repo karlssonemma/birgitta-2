@@ -13,7 +13,7 @@ export function FooterMenu({menu}) {
       {(menu?.items || []).map((item) => (
           <>
             {(item?.items?.length > 0) && (
-              <div className="flex flex-col text-center md:text-left">
+              <nav className="flex flex-col text-center md:text-left" key={item.key}>
                 <p className="font-bold">{item.title}</p>
                 {item.items.map((subItem) => (
                   <Link 
@@ -25,7 +25,7 @@ export function FooterMenu({menu}) {
                     {subItem.title}
                   </Link>
                 ))}
-              </div>
+              </nav>
             )}
           </>
       ))}{' '}

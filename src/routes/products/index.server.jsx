@@ -32,6 +32,7 @@ export default function AllProducts() {
           type="page"
           data={{
             title: 'All Products',
+            description: 'All products'
           }}
         />
       </Suspense>

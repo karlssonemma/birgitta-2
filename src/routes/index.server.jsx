@@ -62,12 +62,7 @@ export default function Homepage() {
   return (
     <Layout>
       <Suspense>
-        <Seo 
-          type="page" 
-          data={{
-            title: "Home"
-          }} 
-        />
+        <SeoForHomepage />
         <div className='h-max md:h-[calc(100vh-8rem)] text-black flex flex-col-reverse md:flex-row lg:justify-start items-center gap-24'>
           <Image 
             data={page.image.reference.image}
@@ -94,6 +89,29 @@ const LinkToShop = () => {
       <ArrowIcon classes='rotate-180 stroke-green-dark ml-6 transition-colors scale-[150%]' />
     </Link>
   )
+};
+
+function SeoForHomepage() {
+  const {
+    data: {
+      shop: {name, description},
+    },
+  } = useShopQuery({
+    query: HOMEPAGE_SEO_QUERY,
+    cache: CacheLong(),
+    preload: true,
+  });
+
+  return (
+    <Seo
+      type="homepage"
+      data={{
+        title: name,
+        description,
+        titleTemplate: '%s · Home',
+      }}
+    />
+  );
 }
 
 
@@ -171,6 +189,7 @@ const HOMEPAGE_SEO_QUERY = gql`
   query homeShopInfo {
     shop {
       description
+      name
     }
   }
 `;

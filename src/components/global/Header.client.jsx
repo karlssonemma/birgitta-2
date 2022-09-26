@@ -1,4 +1,4 @@
-import {Link, useUrl, useCart, Image} from '@shopify/hydrogen';
+import {Link, useUrl, useCart, Image, useRouteParams} from '@shopify/hydrogen';
 import logob from '../../assets/logob.svg';
 
 import {MenuDrawer} from './MenuDrawer.client';
@@ -10,6 +10,8 @@ import { CountrySelector } from '../CountrySelector.client';
  */
 export function Header({title, menu}) {
   const {pathname} = useUrl();
+
+  const {handle} = useRouteParams();
 
   const localeMatch = /^\/([a-z]{2})(\/|$)/i.exec(pathname);
   const countryCode = localeMatch ? localeMatch[1] : undefined;
@@ -52,6 +54,7 @@ export function Header({title, menu}) {
 function MobileHeader({openMenu}) {
   const {totalQuantity} = useCart()
 
+
   return (
     <header role="banner" className="lg:hidden relative h-32 min-h-max w-full max-w-[100vw] flex flex-row justify-between items-center z-40 py-6 px-6 md:px-24 bg-gray-light">
       <Link
@@ -68,7 +71,6 @@ function MobileHeader({openMenu}) {
         <NavLink to='/cart'>
           <span className="text-black mr-2">({totalQuantity})</span>
           <Bag />
-          {/* <CartBadge dark={isHome} /> */}
         </NavLink>
       </div>
 
@@ -88,12 +90,10 @@ function DesktopHeader({menu}) {
         <nav className="flex gap-8">
           <ul className="md:flex items-center justify-center">
           {/* Top level menu items */}
-          {(menu?.items || []).map((item, i) => {
-            let delay = i + 5;
-            let animation = `animate-[slideUp_0.5s_ease-in-out_0.${delay}s_forwards]`
+          {(menu?.items || []).map((item) => {
             return(
-            <li className="overflow-hidden" key={item.id}>
-              <NavLink to={item.to} target={item.target} classes={animation}>
+            <li className="overflow-hidden active:underline" key={item.id}>
+              <NavLink to={item.to} target={item.target}>
                 {item.title}
               </NavLink>
             </li>

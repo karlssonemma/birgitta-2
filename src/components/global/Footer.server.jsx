@@ -71,14 +71,23 @@ const Contact = () => {
         >
           info@birgittajadenfelt.com
         </a>
-        <a 
-          href="tel:+46 675 45 45 45"
-          className="hover:underline"
-        >
-          +46 675 45 45 45
+        <a href="https://www.instagram.com/sybiggan" target="_blank" className="pt-1 -translate-x-1">
+          <InstagramIcon />
         </a>
       </div>
     </section>
+  )
+}
+
+const InstagramIcon = () => {
+  return(
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="24" height="24" />
+      <rect x="4.75" y="4.75" width="15.5" height="15.5" rx="4.25" stroke="#898989" stroke-width="1.5"/>
+      <circle cx="12.5" cy="12.5" r="3.75" stroke="#898989" stroke-width="1.5"/>
+      <circle cx="17" cy="8" r="0.75" fill="#898989" stroke="#898989" stroke-width="0.5"/>
+    </svg>
+
   )
 }
 

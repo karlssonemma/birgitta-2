@@ -1,4 +1,5 @@
 import {useShopQuery, gql} from '@shopify/hydrogen';
+import { renderIntoDocument } from 'react-dom/test-utils';
 
 import {FooterMenu, CountrySelector} from '~/components';
 
@@ -37,19 +38,30 @@ export function Footer({menu}) {
       className="w-screen h-max py-10 px-6 md:px-24 bottom-0 left-0 relative flex flex-col md:flex-row justify-between items-center bg-gray-light"
     >
       <FooterMenu menu={menu} />
+      <FooterInfo />
 
       <section className="flex flex-col pt-6">
         <CountrySelector />
         <Cards />
         <small className="text-gray-dark">Copyright &copy; {year}, Developed by&nbsp;
         <a href="http://www.karlssonemma.com" target="_blank">
-           Emma Karlsson
-        </a></small>
+           Emma Karlsson,&nbsp;
+        </a>
+        Powered by&nbsp;
+        <a href="http://www.shopify.com" target="_blank">
+           Shopify
+        </a>
+        </small>
       </section>
     </footer>
   );
 }
 
+const FooterInfo = () => {
+  return(
+    <p>Hej</p>
+  )
+}
 
 const PAYMENT_QUERY = gql`
     query Payment {

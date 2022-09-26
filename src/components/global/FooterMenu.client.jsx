@@ -6,6 +6,8 @@ import ArrowLink from '../ArrowLink';
  * A server component that specifies the content of the footer on the website
  */
 export function FooterMenu({menu}) {
+
+  console.log("FOOT MEMNU", menu)
   
   return (
     <section className="w-max flex flex-col justify-between">

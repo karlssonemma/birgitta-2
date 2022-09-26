@@ -86,6 +86,8 @@ const SHOP_QUERY = gql`
     }
     headerMenu: menu(handle: $headerMenuHandle) {
       id
+      title
+      handle
       items {
         ...MenuItem
         items {
@@ -95,6 +97,8 @@ const SHOP_QUERY = gql`
     }
     footerMenu: menu(handle: $footerMenuHandle) {
       id
+      title
+      handle
       items {
         ...MenuItem
         items {

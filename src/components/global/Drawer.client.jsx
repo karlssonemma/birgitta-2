@@ -52,7 +52,7 @@ function Drawer({heading, open, onClose, openFrom = 'right', children}) {
                 <Dialog.Panel className="w-screen h-screen max-w-lg text-left align-middle transition-all transform shadow-xl bg-gray-light">
                   <button
                       type="button"
-                      className="p-8 transition text-black absolute top-0 right-0"
+                      className="p-8 pt-14 transition text-black absolute top-0 right-0"
                       onClick={onClose}
                     >
                       <IconClose aria-label="Close panel" />

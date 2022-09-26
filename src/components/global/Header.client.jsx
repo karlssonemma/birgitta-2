@@ -65,13 +65,13 @@ function MobileHeader({openMenu}) {
       </Link>
 
       <div className="flex items-center">
-        <button onClick={openMenu} className='flex m-4 h-max'>
-          <Hamburger />
-        </button>
         <NavLink to='/cart'>
           <span className="text-black mr-2">({totalQuantity})</span>
           <Bag />
         </NavLink>
+        <button onClick={openMenu} className='flex m-4 h-max'>
+          <Hamburger />
+        </button>
       </div>
 
     </header>

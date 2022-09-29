@@ -7,6 +7,7 @@ import {
 import {CartLineItem, CartEmpty} from '~/components';
 import MoneyPrice from '../MoneyPrice.client';
 import { BUTTON_DEFAULT_CLASS } from '../Button.client';
+import ArrowLink from '../ArrowLink';
 
 export function CartDetails({onClose, data}) {
   const {lines} = useCart();
@@ -22,7 +23,7 @@ export function CartDetails({onClose, data}) {
         aria-labelledby="cart-contents"
         className={`w-full md:w-1/2`}
       >
-        <ul className="grid gap-4">
+        <ul className="grid gap-4 mb-4">
           {lines.map((line) => {
             return (
               <CartLineProvider key={line.id} line={line}>
@@ -31,6 +32,7 @@ export function CartDetails({onClose, data}) {
             );
           })}
         </ul>
+        <ArrowLink label="continue shopping" direction="left" to="/products" />
       </section>
 
       <section aria-labelledby="summary-heading" className="w-full md:w-1/2 md:p-6 flex flex-col">

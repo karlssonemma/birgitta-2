@@ -42,6 +42,7 @@ export function CountrySelector() {
         redirectPath = `${currentPath.substring(currentPath.indexOf('/', 1))}`;
       }
 
+
       window.location.href = redirectPath;
     },
     [currentCountry],

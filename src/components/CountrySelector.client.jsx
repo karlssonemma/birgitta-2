@@ -5,6 +5,7 @@ import {Listbox} from '@headlessui/react';
 
 import {IconCheck, IconCaret} from '~/components';
 import {useMemo} from 'react';
+import ipLookUp from '../lib/ipLookUp';
 
 /**
  * A client component that selects the appropriate country to display for products on a website
@@ -24,6 +25,7 @@ export function CountrySelector() {
       isoCode: isoCode,
     };
   }, [isoCode]);
+
 
   const setCountry = useCallback(
     ({isoCode: newIsoCode}) => {
@@ -47,6 +49,7 @@ export function CountrySelector() {
     },
     [currentCountry],
   );
+
 
   return (
     <div className="relative text-sm">

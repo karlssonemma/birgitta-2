@@ -8,7 +8,7 @@ import {
 } from "@shopify/hydrogen";
 import { Layout } from "../components/index.server";
 import { Suspense } from "react";
-
+import $ from "jquery";
 
 export default function InfoPage() {
     const {
@@ -28,6 +28,7 @@ export default function InfoPage() {
 
     const info = flattenConnection(data.blog.articles)
     const postsWithImage = info.filter(post => post.image)
+
 
 
     return(
@@ -65,6 +66,8 @@ export default function InfoPage() {
         </Layout>
     )
 }
+
+
 
 const QUERY = gql`
     query getBlog(

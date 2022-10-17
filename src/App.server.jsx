@@ -21,7 +21,6 @@ function App({routes, request}) {
 
   const isHome = pathname === `/${countryCode ? countryCode + '/' : ''}`;
 
-  console.log("ISHOME", )
 
   return (
     <Suspense fallback={<HeaderFallback isHome={isHome} />}>

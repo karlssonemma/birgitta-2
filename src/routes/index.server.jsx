@@ -16,6 +16,7 @@ import {Layout} from '~/components/index.server';
 
 import ArrowIcon from '../components/ArrowIcon';
 import FeaturedSection from '../components/FeaturedSection.client';
+import CountryModal from '../components/global/CountryModal.client';
 
 
 export default function Homepage() {
@@ -63,6 +64,7 @@ export default function Homepage() {
     <Layout>
       <Suspense>
         <SeoForHomepage />
+        <CountryModal />
         <div className='h-max md:h-[calc(100vh-8rem)] text-black flex flex-col-reverse md:flex-row lg:justify-start items-center gap-24'>
           <Image 
             data={page.image.reference.image}

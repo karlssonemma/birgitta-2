@@ -53,7 +53,7 @@ export default function Policy({params}) {
 
     return(
         <Layout>
-            <section className="text-black pb-24">
+            <section className="text-black pb-24 pt-20 max-w-4xl m-auto">
                 <h1 className="text-lg mb-4 font-bold">{page.title}</h1>
                 <div className="font-light tracking-wider">
                   <div dangerouslySetInnerHTML={{__html: page.body}} />

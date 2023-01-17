@@ -1,4 +1,4 @@
-import { useState, Fragment } from 'react';
+import { useState, Fragment, useEffect } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { CountrySelector } from '../CountrySelector.client';
 import { Image } from '@shopify/hydrogen';
@@ -8,7 +8,21 @@ import ArrowIcon from '../ArrowIcon';
 
 export default function CountryModal() {
 
-    let [isOpen, setIsOpen] = useState(true)
+    let [isOpen, setIsOpen] = useState(false)
+
+    const storageType = localStorage;
+    const consentPropertyName = 'country_modal';
+
+    useEffect(() => {
+        if (!storageType.getItem(consentPropertyName)) {
+            setIsOpen(true)
+        };
+    }, [])
+        
+
+    useEffect(() => {
+        isOpen && localStorage.setItem(consentPropertyName, JSON.stringify(isOpen))
+    }, [isOpen])
 
     return(
         <Transition show={isOpen} as={Fragment}>

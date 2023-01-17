@@ -11,6 +11,7 @@ import { CountrySelector } from '../CountrySelector.client';
 export function Header({title, menu}) {
   const {pathname} = useUrl();
 
+
   const {handle} = useRouteParams();
 
   const localeMatch = /^\/([a-z]{2})(\/|$)/i.exec(pathname);
@@ -92,7 +93,7 @@ function DesktopHeader({menu}) {
           {/* Top level menu items */}
           {(menu?.items || []).map((item) => {
             return(
-            <li className="overflow-hidden active:underline" key={item.id}>
+            <li className="overflow-hidden" key={item.id}>
               <NavLink to={item.to} target={item.target}>
                 {item.title}
               </NavLink>
@@ -113,9 +114,10 @@ function DesktopHeader({menu}) {
 
 function NavLink({ classes, to, children, target, key }) {
 
+  const {pathname} = useUrl();
   
   return(
-    <Link to={to} key={key} target={target} className={`flex m-4 lowercase hover:underline tracking-widest text-black text-sm overflow-hidden`}>
+    <Link to={to} key={key} target={target} className={`flex m-4 lowercase hover:underline tracking-widest text-black text-sm overflow-hidden ${pathname === to && 'underline'}`}>
       <span className={`flex ${classes}`}>
       {children}
       </span>

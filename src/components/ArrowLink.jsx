@@ -6,7 +6,7 @@ import { Link } from "@shopify/hydrogen/client";
 const ArrowLink = ({ label, to, direction, classes, blank }) => {
 
 
-    let LinkClasses = `group text-sm tracking-widest text-black pb-3 block hover:underline ${classes}`
+    let LinkClasses = `group text-sm tracking-widest text-black pb-3 block min-w-max hover:underline ${classes}`
     let ArrowClasses = `stroke-black ${direction === "right" ? "rotate-180 ml-3" : "mr-3"}`;
 
     if(direction === "right") {

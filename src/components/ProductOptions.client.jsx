@@ -1,10 +1,19 @@
 // import {useProduct} from '@shopify/hydrogen/client';
 import { useProductOptions, AddToCartButton } from '@shopify/hydrogen/client';
 import { BUTTON_DEFAULT_CLASS } from './Button.client';
+import { useState } from 'react';
 
 export default function ProductOptions() {
   const {options, setSelectedOption, selectedOptions, selectedVariant} = useProductOptions();
 
+  const [btnLabel, setBtnLabel] = useState('Add to cart')
+
+  const handleClick = (e) => {
+    setBtnLabel('Added!')
+    setTimeout(() => {
+      setBtnLabel('Add to cart')
+    }, 1000)
+  }
 
   return(
     <div className="mb-6">
@@ -40,11 +49,14 @@ export default function ProductOptions() {
             )
           })}
           <AddToCartButton
+            // id={selectedVariant.id}
             variantId={selectedVariant.id}
             quantity={1}
+            accessibleAddingToCartLabel="Adding item to your cart"
             className={`${BUTTON_DEFAULT_CLASS} mt-6`}
+            onClick={(e) => handleClick(e)}
           >
-              Add to cart
+              {btnLabel}
           </AddToCartButton>
         </form>
       )})}

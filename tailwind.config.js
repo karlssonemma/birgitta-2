@@ -103,12 +103,19 @@ module.exports = {
           '0%': { opacity: '0%' },
           '100%': { opacity: '100%' }
         },
+        btnClick: {
+          '0%': { transform: 'scale(100%)' },
+          '50%': { transform: 'scale(80%)' },
+          '100%': { transform: 'scale(100%)' }
+        }
         
       },
       animation: {
         textOut: 'textOut 0.5s ease-out 0.5s forwards',
         textIn: 'textIn 0.5s ease-out 1s forwards',
-        fadeIn: 'fadeIn 0.2s ease-out 0.2s forwards'
+        fadeIn: 'fadeIn 0.2s ease-out 0.2s forwards',
+        btnClick: 'btnClick 0.5s ease-in-out forwards'
+
       }
     },
   },

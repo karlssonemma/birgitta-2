@@ -16,10 +16,10 @@ export default function Policy({params}) {
     const {handle} = params;
 
     const policy = {
-        privacyPolicy: handle === 'privacy-policy',
-        shippingPolicy: handle === 'shipping-policy',
-        termsOfService: handle === 'terms-of-service',
-        refundPolicy: handle === 'refund-policy',
+        privacyPolicy: handle === "privacy-policy",
+        shippingPolicy: handle === "shipping-policy",
+        termsOfService: handle === "terms-of-service",
+        refundPolicy: handle === "refund-policy",
       };
 
     if (

@@ -1,5 +1,5 @@
-import {Drawer} from './Drawer.client';
-import {Link} from '@shopify/hydrogen';
+import {Drawer} from "./Drawer.client";
+import {Link} from "@shopify/hydrogen";
 
 export function MenuDrawer({isOpen, onClose, menu}) {
   return (
@@ -24,10 +24,10 @@ function MenuMobileNav({menu, onClose}) {
         </Link>
       ))}
       <Link 
-        to='/info' 
+        to="/info'"
         onClick={onClose} 
         className="text-black p-4 lowercase tracking-wider hover:underline" 
-        key={'infoPage'}
+        key={"infoPage"}
       >
         Info
       </Link>

@@ -11,14 +11,14 @@ const ArrowLink = ({ label, to, direction, classes, blank }) => {
 
     if(direction === "right") {
         return(
-            <Link to={to} className={LinkClasses} target={blank ? '_blank' : ''}>
+            <Link to={to} className={LinkClasses} target={blank ? "_blank" : ""}>
                 {label}
                 <ArrowIcon classes={ArrowClasses} />
             </Link>
         )
     } else {
         return(
-            <Link to={to} className={LinkClasses} target={blank ? '_blank' : ''}>
+            <Link to={to} className={LinkClasses} target={blank ? "_blank" : ""}>
                 <ArrowIcon classes={ArrowClasses} />
                 {label}
             </Link>

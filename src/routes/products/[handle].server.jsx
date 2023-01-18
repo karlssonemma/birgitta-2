@@ -1,4 +1,4 @@
-import {Suspense} from 'react';
+import {Suspense} from "react";
 import {
   gql,
   ProductOptionsProvider,
@@ -11,14 +11,14 @@ import {
   flattenConnection,
   Image,
   ProductPrice
-} from '@shopify/hydrogen';
+} from "@shopify/hydrogen";
 
-import {MEDIA_FRAGMENT} from '~/lib/fragments';
-import {NotFound, Layout} from '~/components/index.server';
+import {MEDIA_FRAGMENT} from "~/lib/fragments";
+import {NotFound, Layout} from "~/components/index.server";
 
-import ProductOptions from '../../components/ProductOptions.client';
-import NoImage from '../../components/NoImage';
-import Gallery from '../../components/Gallery.client';
+import ProductOptions from "../../components/ProductOptions.client";
+import NoImage from "../../components/NoImage";
+import Gallery from "../../components/Gallery.client";
 
 
 
@@ -105,7 +105,7 @@ export default function Product() {
                 <p className="font-sans font-light pb-6 text-black text-base tracking-wide">
                   {description}
                 </p>
-            <ProductOptions />        
+            <ProductOptions />       "
             </div>
               <div className="hidden md:block">
                 {rightCol.map(img => 

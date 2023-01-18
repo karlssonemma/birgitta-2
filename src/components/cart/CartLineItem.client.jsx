@@ -6,11 +6,11 @@ import {
   CartLineQuantity,
   Image,
   Link,
-} from '@shopify/hydrogen';
+} from "@shopify/hydrogen";
 
-import CloseIcon from '../CloseIcon';
-import MoneyPrice from '../MoneyPrice.client';
-import NoImage from '../NoImage';
+import CloseIcon from "../CloseIcon";
+import MoneyPrice from "../MoneyPrice.client";
+import NoImage from "../NoImage";
 
 export function CartLineItem() {
   const {id: lineId, merchandise, cost, quantity} = useCartLine();

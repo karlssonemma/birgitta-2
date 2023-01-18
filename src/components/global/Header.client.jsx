@@ -1,9 +1,9 @@
-import {Link, useUrl, useCart, Image, useRouteParams} from '@shopify/hydrogen';
-import logob from '../../assets/logob.svg';
+import {Link, useUrl, useCart, Image, useRouteParams} from "@shopify/hydrogen";
+import logob from "../../assets/logob.svg";
 
-import {MenuDrawer} from './MenuDrawer.client';
-import {useDrawer} from './Drawer.client';
-import { CountrySelector } from '../CountrySelector.client';
+import {MenuDrawer} from "./MenuDrawer.client";
+import {useDrawer} from "./Drawer.client";
+import { CountrySelector } from "../CountrySelector.client";
 
 /**
  * A client component that specifies the content of the header on the website
@@ -70,7 +70,7 @@ function MobileHeader({openMenu}) {
           <span className="text-black mr-2">({totalQuantity})</span>
           <Bag />
         </NavLink>
-        <button onClick={openMenu} className='flex m-4 h-max'>
+        <button onClick={openMenu} className="flex m-4 h-max">
           <Hamburger />
         </button>
       </div>
@@ -99,10 +99,10 @@ function DesktopHeader({menu}) {
               </NavLink>
             </li>
             )})}
-            <NavLink to='/info'>
+            <NavLink to="/info">
               info
             </NavLink>
-            <NavLink to='/cart'>
+            <NavLink to="/cart">
               <span className="mr-2">({totalQuantity})</span>
               <Bag />
             </NavLink>

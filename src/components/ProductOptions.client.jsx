@@ -1,17 +1,17 @@
 // import {useProduct} from '@shopify/hydrogen/client';
 import { useProductOptions, AddToCartButton } from '@shopify/hydrogen/client';
 import { BUTTON_DEFAULT_CLASS } from './Button.client';
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function ProductOptions() {
   const {options, setSelectedOption, selectedOptions, selectedVariant} = useProductOptions();
 
-  const [btnLabel, setBtnLabel] = useState('Add to cart')
+  const [btnLabel, setBtnLabel] = useState("Add to cart")
 
   const handleClick = (e) => {
-    setBtnLabel('Added!')
+    setBtnLabel("Added!")
     setTimeout(() => {
-      setBtnLabel('Add to cart')
+      setBtnLabel("Add to cart")
     }, 1000)
   }
 

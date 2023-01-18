@@ -1,25 +1,24 @@
-import {Seo, useShopQuery, gql} from '@shopify/hydrogen';
-import {Suspense} from 'react';
-import {CartDetails} from '~/components';
-import {Layout} from '~/components/index.server';
+import {Seo, useShopQuery, gql} from "@shopify/hydrogen";
+import {Suspense} from "react";
+import {CartDetails} from "~/components";
+import {Layout} from "~/components/index.server";
 
 export default function Cart() {
 
   const {data} = useShopQuery({
     query: QUERY,
     variables: {
-      handle: 'information',
-      articleHandle: 'info-om-pdf'
+      handle: "information",
+      articleHandle: "info-om-pdf"
     }
   })
-
   return (
     <Layout>
       <Suspense>
         <Seo
           type="page"
           data={{
-            title: 'Cart',
+            title: "Cart",
           }}
         />
       </Suspense>

@@ -1,13 +1,13 @@
-import {useLocalization, useShopQuery, CacheLong, gql} from '@shopify/hydrogen';
-import { Suspense } from 'react';
+import {useLocalization, useShopQuery, CacheLong, gql} from "@shopify/hydrogen";
+import { Suspense } from "react";
 
-import {Header} from '~/components';
-import {Footer} from '~/components/index.server';
-import {parseMenu} from '~/lib/utils';
-import { HeaderFallback } from '../HeaderFallback';
+import {Header} from "~/components";
+import {Footer} from "~/components/index.server";
+import {parseMenu} from "~/lib/utils";
+import { HeaderFallback } from "../HeaderFallback";
 
-const HEADER_MENU_HANDLE = 'main-menu';
-const FOOTER_MENU_HANDLE = 'footer';
+const HEADER_MENU_HANDLE = "main-menu";
+const FOOTER_MENU_HANDLE = "footer";
 
 /**
  * A server component that defines a structure and organization of a page that can be used in different parts of the Hydrogen app
@@ -28,7 +28,7 @@ export function Layout({children}) {
     preload: '*',
   });
 
-  const shopName = data ? data.shop.name : 'Hydrogen Demo Store';
+  const shopName = data ? data.shop.name : "Birgitta Jadenfelt";
 
   /*
         Modify specific links/routes (optional)
@@ -38,7 +38,7 @@ export function Layout({children}) {
           - /blog/news/blog-post -> /news/blog-post
           - /collections/all -> /products
       */
-  const customPrefixes = {BLOG: '', CATALOG: 'products'};
+  const customPrefixes = {BLOG: '', CATALOG: "products"};
 
   const headerMenu = data?.headerMenu
     ? parseMenu(data.headerMenu, customPrefixes)

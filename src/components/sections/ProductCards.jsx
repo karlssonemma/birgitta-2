@@ -1,4 +1,4 @@
-import {ProductCard} from '../cards/ProductCard.client';
+import {ProductCard} from "../cards/ProductCard.client";
 
 export function ProductCards({products}) {
   return (
@@ -7,7 +7,7 @@ export function ProductCards({products}) {
         <ProductCard
           product={product}
           key={product.id}
-          className={'snap-start w-80'}
+          className={"snap-start w-80"}
         />
       ))}
     </>

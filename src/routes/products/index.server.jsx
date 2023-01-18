@@ -1,10 +1,10 @@
-import {useShopQuery, gql, useLocalization, Seo} from '@shopify/hydrogen';
+import {useShopQuery, gql, useLocalization, Seo} from "@shopify/hydrogen";
 
-import {PRODUCT_CARD_FRAGMENT} from '~/lib/fragments';
-import {PAGINATION_SIZE} from '~/lib/const';
-import {Layout} from '~/components/index.server';
-import {Suspense} from 'react';
-import ProductCard from '../../components/ProductCard.client';
+import {PRODUCT_CARD_FRAGMENT} from "~/lib/fragments";
+import {PAGINATION_SIZE} from "~/lib/const";
+import {Layout} from "~/components/index.server";
+import {Suspense} from "react";
+import ProductCard from "../../components/ProductCard.client";
 
 export default function AllProducts() {
   const {
@@ -31,8 +31,8 @@ export default function AllProducts() {
         <Seo
           type="page"
           data={{
-            title: 'All Products',
-            description: 'All products'
+            title: "All Products",
+            description: "All product"
           }}
         />
       </Suspense>
@@ -53,16 +53,16 @@ export default function AllProducts() {
 // API to paginate products
 // @see templates/demo-store/src/components/product/ProductGrid.client.tsx
 export async function api(request, {params, queryShop}) {
-  if (request.method !== 'POST') {
-    return new Response('Method not allowed', {
+  if (request.method !== "POST") {
+    return new Response("Method not allowed", {
       status: 405,
-      headers: {Allow: 'POST'},
+      headers: {Allow: "POST"},
     });
   }
 
   const url = new URL(request.url);
-  const cursor = url.searchParams.get('cursor');
-  const country = url.searchParams.get('country');
+  const cursor = url.searchParams.get("cursor");
+  const country = url.searchParams.get("country");
   const {handle} = params;
 
   return await queryShop({

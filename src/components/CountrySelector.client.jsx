@@ -1,11 +1,11 @@
-import {useCallback, useState, Suspense} from 'react';
-import {useLocalization, fetchSync} from '@shopify/hydrogen';
+import {useCallback, useState, Suspense} from "react";
+import {useLocalization, fetchSync} from "@shopify/hydrogen";
 // @ts-expect-error @headlessui/react incompatibility with node16 resolution
-import {Listbox} from '@headlessui/react';
+import {Listbox} from "@headlessui/react";
 
-import {IconCheck, IconCaret} from '~/components';
-import {useMemo} from 'react';
-import ipLookUp from '../lib/ipLookUp';
+import {IconCheck, IconCaret} from "~/components";
+import {useMemo} from "react";
+import ipLookUp from "../lib/ipLookUp";
 
 /**
  * A client component that selects the appropriate country to display for products on a website
@@ -16,8 +16,8 @@ export function CountrySelector() {
     country: {isoCode},
   } = useLocalization();
   const currentCountry = useMemo(() => {
-    const regionNamesInEnglish = new Intl.DisplayNames(['en'], {
-      type: 'region',
+    const regionNamesInEnglish = new Intl.DisplayNames(["en"], {
+      type: "region",
     });
 
     return {
@@ -32,16 +32,16 @@ export function CountrySelector() {
       const currentPath = window.location.pathname;
       let redirectPath;
 
-      if (newIsoCode !== 'US') {
-        if (currentCountry.isoCode === 'US') {
+      if (newIsoCode !== "US") {
+        if (currentCountry.isoCode === "US") {
           redirectPath = `/${newIsoCode.toLowerCase()}${currentPath}`;
         } else {
           redirectPath = `/${newIsoCode.toLowerCase()}${currentPath.substring(
-            currentPath.indexOf('/', 1),
+            currentPath.indexOf("/", 1),
           )}`;
         }
       } else {
-        redirectPath = `${currentPath.substring(currentPath.indexOf('/', 1))}`;
+        redirectPath = `${currentPath.substring(currentPath.indexOf("/", 1))}`;
       }
 
 
@@ -61,11 +61,11 @@ export function CountrySelector() {
             <>
               <Listbox.Button
                 className={` bg-white flex items-center justify-between w-full py-2 px-2 border border-gray-medium ${
-                  open ? 'rounded-b md:rounded-t md:rounded-b-none' : 'rounded'
+                  open ? "rounded-b md:rounded-t md:rounded-b-none" : "rounded"
                 }`}
               >
                 <span className="text-gray-dark tracking-wider">{currentCountry.name}</span>
-                <IconCaret direction={open ? 'up' : 'down'} stroke='#898989' />
+                <IconCaret direction={open ? "up" : "down"} stroke="#898989" />
               </Listbox.Button>
 
               <Listbox.Options
@@ -73,7 +73,7 @@ export function CountrySelector() {
                 h-28 w-full overflow-y-scroll rounded-t border 
                 transition-[max-height] duration-150 sm:bottom-auto md:rounded-b md:rounded-t-none
                 md:border-t-0 md:border-b ${
-                  listboxOpen ? 'max-h-18' : 'max-h-0'
+                  listboxOpen ? "max-h-18" : "max-h-0"
                 }`}
               >
                 {listboxOpen && (
@@ -98,7 +98,7 @@ export function CountrySelector() {
 }
 
 export function Countries({selectedCountry, getClassName}) {
-  const countries = fetchSync('/api/countries').json();
+  const countries = fetchSync("/api/countries").json();
 
   return (countries || []).map((country) => {
     const isSelected = country.isoCode === selectedCountry.isoCode;

@@ -1,4 +1,4 @@
-import {CacheLong, gql, Seo, useShopQuery} from '@shopify/hydrogen';
+import {CacheLong, gql, Seo, useShopQuery} from "@shopify/hydrogen";
 
 /**
  * A server component that fetches a `shop.name` and sets default values and templates for every page on a website
@@ -11,7 +11,7 @@ export function DefaultSeo() {
   } = useShopQuery({
     query: SHOP_QUERY,
     cache: CacheLong(),
-    preload: '*',
+    preload: "*",
   });
 
 

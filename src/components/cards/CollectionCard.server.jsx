@@ -1,6 +1,6 @@
-import {Image, Link} from '@shopify/hydrogen';
+import {Image, Link} from "@shopify/hydrogen";
 
-import {Heading} from '~/components';
+import {Heading} from "~/components";
 
 export function CollectionCard({collection, loading}) {
   return (
@@ -16,7 +16,7 @@ export function CollectionCard({collection, loading}) {
             widths={[400, 500, 600, 700, 800, 900]}
             loaderOptions={{
               scale: 2,
-              crop: 'center',
+              crop: "center",
             }}
           />
         )}

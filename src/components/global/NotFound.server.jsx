@@ -1,13 +1,13 @@
-import {Layout} from '~/components/index.server';
-import ArrowLink from '../ArrowLink';
-import { Seo } from '@shopify/hydrogen';
-import { Suspense } from 'react';
+import {Layout} from "~/components/index.server";
+import ArrowLink from "../ArrowLink";
+import { Seo } from "@shopify/hydrogen";
+import { Suspense } from "react";
 
-export function NotFound({response, type = 'page'}) {
+export function NotFound({response, type = "page"}) {
   if (response) {
     response.doNotStream();
     response.status = 404;
-    response.statusText = 'Not found';
+    response.statusText = "Not found";
   }
 
   return (
@@ -16,7 +16,7 @@ export function NotFound({response, type = 'page'}) {
         <Seo
             type="page"
             data={{
-                title: '404',
+                title: "404",
             }}
         />
       </Suspense>

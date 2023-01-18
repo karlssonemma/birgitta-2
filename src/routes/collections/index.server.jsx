@@ -1,9 +1,9 @@
-import {useShopQuery, useLocalization, gql, Seo} from '@shopify/hydrogen';
-import {Suspense} from 'react';
+import {useShopQuery, useLocalization, gql, Seo} from "@shopify/hydrogen";
+import {Suspense} from "react";
 
-import {Section, Grid} from '~/components';
-import {Layout, CollectionCard} from '~/components/index.server';
-import {getImageLoadingPriority, PAGINATION_SIZE} from '~/lib/const';
+import {Section, Grid} from "~/components";
+import {Layout, CollectionCard} from "~/components/index.server";
+import {getImageLoadingPriority, PAGINATION_SIZE} from "~/lib/const";
 
 export default function Collections() {
   const {
@@ -29,7 +29,7 @@ export default function Collections() {
         <Seo
           type="page"
           data={{
-            title: 'All Collections',
+            title: "All Collections",
           }}
         />
       </Suspense>

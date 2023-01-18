@@ -26,7 +26,7 @@ export default function Gallery({media}) {
     return <NoImage />;
   }
 
-  let imgWidth = galleryMedia.length <= 0 ? 'w-full' : 'w-[80vw]';
+  let imgWidth = galleryMedia.length <= 0 ? "w-full" : "w-[80vw]";
 
   return (
 

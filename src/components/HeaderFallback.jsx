@@ -1,7 +1,7 @@
 export function HeaderFallback({isHome}) {
   const styles = isHome
-    ? 'bg-gray-light text-contrast'
-    : 'bg-gray-light text-primary';
+    ? "bg-gray-light text-contrast"
+    : "bg-gray-light text-primary";
   return (
     <header
       role="banner"
@@ -21,9 +21,8 @@ export function HeaderFallback({isHome}) {
 function Box({wide, isHome}) {
   return (
     <div
-      className={`h-6 rounded-sm ${wide ? 'w-36' : 'w-14'} ${
-        isHome ? 'bg-[#f0f0f0]' : 'bg-[#f0f0f0]'
-      }`}
+      className={`h-6 rounded-sm ${wide ? "w-36" : "w-14"} ${
+        isHome ? "bg-[#f0f0f0]" : "bg-[#f0f0f0]"}`}
     />
   );
 }

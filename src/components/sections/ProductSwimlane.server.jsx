@@ -1,25 +1,25 @@
-import {useMemo} from 'react';
-import {gql, useShopQuery, useLocalization} from '@shopify/hydrogen';
-import {PRODUCT_CARD_FRAGMENT} from '~/lib/fragments';
-import {ProductCard, Section} from '~/components';
+import {useMemo} from "react";
+import {gql, useShopQuery, useLocalization} from "@shopify/hydrogen";
+import {PRODUCT_CARD_FRAGMENT} from "~/lib/fragments";
+import {ProductCard, Section} from "~/components";
 
 const mockProducts = new Array(12).fill('');
 
 export function ProductSwimlane({
-  title = 'Featured Products',
+  title = "Featured Products",
   data = mockProducts,
   count = 12,
   ...props
 }) {
   const productCardsMarkup = useMemo(() => {
     // If the data is already provided, there's no need to query it, so we'll just return the data
-    if (typeof data === 'object') {
+    if (typeof data === "object") {
       return <ProductCards products={data} />;
     }
 
     // If the data provided is a productId, we will query the productRecommendations API.
     // To make sure we have enough products for the swimlane, we'll combine the results with our top selling products.
-    if (typeof data === 'string') {
+    if (typeof data === "string") {
       return <RecommendedProducts productId={data} count={count} />;
     }
 
@@ -43,7 +43,7 @@ function ProductCards({products}) {
         <ProductCard
           product={product}
           key={product.id}
-          className={'snap-start w-80'}
+          className={"snap-start w-80"}
         />
       ))}
     </>

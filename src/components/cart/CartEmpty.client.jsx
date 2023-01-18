@@ -1,4 +1,4 @@
-import ArrowLink from '../ArrowLink';
+import ArrowLink from "../ArrowLink";
 
 export function CartEmpty() {
 

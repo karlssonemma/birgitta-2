@@ -1,4 +1,4 @@
-import {flattenConnection, gql} from '@shopify/hydrogen';
+import {flattenConnection, gql} from "@shopify/hydrogen";
 
 const MAX_URLS = 250; // the google limit is 50K, however, SF API only allow querying for 250 resources each time
 
@@ -6,16 +6,16 @@ export async function api(request, {queryShop}) {
   const {data} = await queryShop({
     query: QUERY,
     variables: {
-      language: 'EN',
+      language: "EN",
       urlLimits: MAX_URLS,
     },
   });
 
   return new Response(shopSitemap(data, new URL(request.url).origin), {
     headers: {
-      'content-type': 'application/xml',
+      "content-type": "application/xml",
       // Cache for 24 hours
-      'cache-control': `max-age=${60 * 60 * 24}`,
+      "cache-control": `max-age=${60 * 60 * 24}`,
     },
   });
 }
@@ -29,7 +29,7 @@ function shopSitemap(data, baseUrl) {
       const finalObject = {
         url,
         lastMod: product.updatedAt,
-        changeFreq: 'daily',
+        changeFreq: "daily",
       };
 
       if (product.featuredImage.url) {
@@ -57,7 +57,7 @@ function shopSitemap(data, baseUrl) {
       return {
         url,
         lastMod: collection.updatedAt,
-        changeFreq: 'daily',
+        changeFreq: "daily",
       };
     });
 
@@ -69,7 +69,7 @@ function shopSitemap(data, baseUrl) {
       return {
         url,
         lastMod: page.updatedAt,
-        changeFreq: 'weekly',
+        changeFreq: "weekly",
       };
     });
 

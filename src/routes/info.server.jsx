@@ -37,7 +37,7 @@ export default function InfoPage() {
                 <Seo
                     type="page"
                     data={{
-                        title: 'Info',
+                        title: "Info",
                     }}
                 />
                 <section id="infoSection" className="my-6 text-black font-light md:py-16 m-auto flex flex-col-reverse md:flex-row gap-[10%]">

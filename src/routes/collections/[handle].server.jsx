@@ -1,4 +1,4 @@
-import {Suspense} from 'react';
+import {Suspense} from "react";
 import {
   gql,
   Seo,
@@ -7,11 +7,11 @@ import {
   useLocalization,
   useShopQuery,
   flattenConnection,
-} from '@shopify/hydrogen';
+} from "@shopify/hydrogen";
 
-import {PRODUCT_CARD_FRAGMENT} from '~/lib/fragments';
-import {NotFound, Layout} from '~/components/index.server';
-import ProductCard from '../../components/ProductCard.client';
+import {PRODUCT_CARD_FRAGMENT} from "~/lib/fragments";
+import {NotFound, Layout} from "~/components/index.server";
+import ProductCard from "../../components/ProductCard.client";
 
 const pageBy = 48;
 
@@ -69,16 +69,16 @@ export default function Collection({params}) {
 // API endpoint that returns paginated products for this collection
 // @see templates/demo-store/src/components/product/ProductGrid.client.tsx
 export async function api(request, {params, queryShop}) {
-  if (request.method !== 'POST') {
-    return new Response('Method not allowed', {
+  if (request.method !== "POST") {
+    return new Response("Method not allowed", {
       status: 405,
-      headers: {Allow: 'POST'},
+      headers: {Allow: "POST"},
     });
   }
   const url = new URL(request.url);
 
-  const cursor = url.searchParams.get('cursor');
-  const country = url.searchParams.get('country');
+  const cursor = url.searchParams.get("cursor");
+  const country = url.searchParams.get("country");
   const {handle} = params;
 
   return await queryShop({

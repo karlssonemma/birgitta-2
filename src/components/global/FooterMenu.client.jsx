@@ -1,6 +1,6 @@
 // @ts-expect-error @headlessui/react incompatibility with node16 resolution
-import ArrowLink from '../ArrowLink';
-import { Link } from '@shopify/hydrogen';
+import ArrowLink from "../ArrowLink";
+import { Link } from "@shopify/hydrogen";
 
 
 /**

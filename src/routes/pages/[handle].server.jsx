@@ -5,10 +5,10 @@ import {
   useServerAnalytics,
   ShopifyAnalyticsConstants,
   gql,
-} from '@shopify/hydrogen';
-import {Suspense} from 'react';
+} from "@shopify/hydrogen";
+import {Suspense} from "react";
 
-import {NotFound, Layout} from '~/components/index.server';
+import {NotFound, Layout} from "~/components/index.server";
 
 export default function Page({params}) {
   const {

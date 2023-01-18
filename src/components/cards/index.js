@@ -1,1 +1,1 @@
-export {ProductCard} from './ProductCard.client';
+export {ProductCard} from "./ProductCard.client";

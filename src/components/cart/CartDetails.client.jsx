@@ -2,12 +2,12 @@ import {
   useCart,
   CartLineProvider,
   CartCheckoutButton,
-} from '@shopify/hydrogen';
+} from "@shopify/hydrogen";
 
-import {CartLineItem, CartEmpty} from '~/components';
-import MoneyPrice from '../MoneyPrice.client';
-import { BUTTON_DEFAULT_CLASS } from '../Button.client';
-import ArrowLink from '../ArrowLink';
+import {CartLineItem, CartEmpty} from "~/components";
+import MoneyPrice from "../MoneyPrice.client";
+import { BUTTON_DEFAULT_CLASS } from "../Button.client";
+import ArrowLink from "../ArrowLink";
 
 export function CartDetails({onClose, data}) {
   const {lines} = useCart();
@@ -60,11 +60,6 @@ function OrderSummary() {
           <span>Subtotal</span>
           <MoneyPrice money={cost.subtotalAmount} />
       </div>
-
-      {/* <div className="flex flex-row justify-between pb-2 text-md">
-          <span>Taxes</span>
-          {(cost?.totalTaxAmount) ? <MoneyPrice money={cost.totalTaxAmount} /> : <p>-</p>}
-      </div> */}
       
       <div className="flex flex-row justify-between pb-8 text-xl">
           <span>Total</span>

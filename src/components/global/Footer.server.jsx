@@ -1,9 +1,9 @@
-import {useShopQuery, gql} from '@shopify/hydrogen';
-import { renderIntoDocument } from 'react-dom/test-utils';
+import {useShopQuery, gql} from "@shopify/hydrogen";
+import { renderIntoDocument } from "react-dom/test-utils";
 
-import {FooterMenu, CountrySelector} from '~/components';
+import {FooterMenu, CountrySelector} from "~/components";
 
-import { PAYMENT_ICONS } from '../PaymentIcons';
+import { PAYMENT_ICONS } from "../PaymentIcons";
 
 /**
  * A server component that specifies the content of the footer on the website

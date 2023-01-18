@@ -1,8 +1,8 @@
-import {Link, Image} from '@shopify/hydrogen';
+import {Link, Image} from "@shopify/hydrogen";
 
-import {Heading, Section, Grid} from '~/components';
+import {Heading, Section, Grid} from "~/components";
 
-export function FeaturedCollections({data, title = 'Collections', ...props}) {
+export function FeaturedCollections({data, title = "Collections", ...props}) {
   const items = data.filter((item) => item.image).length;
   const haveCollections = data.length > 0;
 
@@ -30,7 +30,7 @@ export function FeaturedCollections({data, title = 'Collections', ...props}) {
                       widths={[400, 500, 600, 700, 800, 900]}
                       loaderOptions={{
                         scale: 2,
-                        crop: 'center',
+                        crop: "center",
                       }}
                     />
                   )}

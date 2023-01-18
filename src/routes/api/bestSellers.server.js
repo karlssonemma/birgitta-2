@@ -1,5 +1,5 @@
-import {gql} from '@shopify/hydrogen';
-import {PRODUCT_CARD_FRAGMENT} from '~/lib/fragments';
+import {gql} from "@shopify/hydrogen";
+import {PRODUCT_CARD_FRAGMENT} from "~/lib/fragments";
 
 export async function api(_request, {queryShop}) {
   const {

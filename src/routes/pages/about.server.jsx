@@ -4,9 +4,9 @@ import {
     gql,
     Image,
     Seo
-  } from '@shopify/hydrogen';
-import {Suspense} from 'react';
-import {NotFound, Layout} from '~/components/index.server';
+  } from "@shopify/hydrogen";
+import {Suspense} from "react";
+import {NotFound, Layout} from "~/components/index.server";
 
 export default function AboutPage({params}) {
     const {
@@ -22,10 +22,10 @@ export default function AboutPage({params}) {
       query: PAGE_QUERY,
       variables: {
         languageCode, 
-        handle: 'about',
-        namespace: 'my_fields',
-        imgKey: 'image',
-        quoteKey: 'quote'
+        handle: "about",
+        namespace: "my_fields",
+        imgKey: "image",
+        quoteKey: "quote"
     },
     });
   
@@ -42,7 +42,7 @@ export default function AboutPage({params}) {
             <Seo type="page" data={page} />
           </Suspense>
             <div className={`flex flex-col md:flex-row m-auto gap-10 py-10 pb-20 text-black`}>
-                <Image 
+                <Image
                     data={page.image.reference.image} 
                     width="800px" 
                     height="400px"

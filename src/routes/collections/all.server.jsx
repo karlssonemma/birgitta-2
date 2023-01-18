@@ -1,3 +1,3 @@
 export default function Redirect({response}) {
-  return response.redirect('/products');
+  return response.redirect("/products");
 }

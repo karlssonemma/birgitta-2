@@ -1,8 +1,8 @@
-import {Fragment, useState} from 'react';
+import {Fragment, useState} from "react";
 // @ts-expect-error @headlessui/react incompatibility with node16 resolution
-import {Dialog, Transition} from '@headlessui/react';
+import {Dialog, Transition} from "@headlessui/react";
 
-import {IconClose} from '~/components';
+import {IconClose} from "~/components";
 
 /**
  * Drawer component that opens on user click.
@@ -12,10 +12,10 @@ import {IconClose} from '~/components';
  * @param openFrom - right, left
  * @param children - react children node.
  */
-function Drawer({heading, open, onClose, openFrom = 'right', children}) {
+function Drawer({heading, open, onClose, openFrom = "right", children}) {
   const offScreen = {
-    right: 'translate-x-full',
-    left: '-translate-x-full',
+    right: "translate-x-full",
+    left: "-translate-x-full",
   };
 
   return (
@@ -37,7 +37,7 @@ function Drawer({heading, open, onClose, openFrom = 'right', children}) {
           <div className="absolute inset-0 overflow-hidden">
             <div
               className={`fixed inset-y-0 flex max-w-full ${
-                openFrom === 'right' ? 'right-0' : ''
+                openFrom === "right" ? "right-0" : ""
               }`}
             >
               <Transition.Child

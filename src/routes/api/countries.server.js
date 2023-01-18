@@ -1,4 +1,4 @@
-import {gql} from '@shopify/hydrogen';
+import {gql} from "@shopify/hydrogen";
 
 export async function api(_request, {queryShop}) {
   const {

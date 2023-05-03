@@ -4,7 +4,8 @@ import { Suspense } from "react";
 import {Header} from "~/components";
 import {Footer} from "~/components/index.server";
 import {parseMenu} from "~/lib/utils";
-import { HeaderFallback } from "../HeaderFallback";
+import CookieBanner from "../../components/CookieBanner";
+
 
 const HEADER_MENU_HANDLE = "main-menu";
 const FOOTER_MENU_HANDLE = "footer";
@@ -29,15 +30,6 @@ export function Layout({children}) {
   });
 
   const shopName = data ? data.shop.name : "Birgitta Jadenfelt";
-
-  /*
-        Modify specific links/routes (optional)
-        @see: https://shopify.dev/api/storefront/unstable/enums/MenuItemType
-        e.g here we map:
-          - /blogs/news -> /news
-          - /blog/news/blog-post -> /news/blog-post
-          - /collections/all -> /products
-      */
   const customPrefixes = {BLOG: '', CATALOG: "products"};
 
   const headerMenu = data?.headerMenu
@@ -61,6 +53,7 @@ export function Layout({children}) {
         <main role="main" id="mainContent" className="flex-grow bg-gray-light px-6 md:px-24 min-h-screen">
           {children}
         </main>
+      <CookieBanner />
       </div>
       <Footer menu={footerMenu} />
     </>

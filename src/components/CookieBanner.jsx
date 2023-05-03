@@ -1,3 +1,6 @@
+import CookieConsent from "react-cookie-consent";
+import CloseIcon from "./CloseIcon";
+
 const CookieBanner = () => {
 
     return(
@@ -11,7 +14,7 @@ const CookieBanner = () => {
 const Accept = () => {
     return(
         <button className="absolute top-4 right-4">
-            x
+            <CloseIcon />
         </button>
     )
 }

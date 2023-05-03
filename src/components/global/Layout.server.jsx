@@ -53,7 +53,7 @@ export function Layout({children}) {
         <main role="main" id="mainContent" className="flex-grow bg-gray-light px-6 md:px-24 min-h-screen">
           {children}
         </main>
-      <CookieBanner />
+      {/* <CookieBanner /> */}
       </div>
       <Footer menu={footerMenu} />
     </>

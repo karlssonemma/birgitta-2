@@ -4,7 +4,7 @@ import { Suspense } from "react";
 import {Header} from "~/components";
 import {Footer} from "~/components/index.server";
 import {parseMenu} from "~/lib/utils";
-import CookieBanner from "../../components/CookieBanner";
+import CookieBanner from "../CookieBanner.client";
 
 
 const HEADER_MENU_HANDLE = "main-menu";
@@ -53,9 +53,9 @@ export function Layout({children}) {
         <main role="main" id="mainContent" className="flex-grow bg-gray-light px-6 md:px-24 min-h-screen">
           {children}
         </main>
-      <CookieBanner />
       </div>
       <Footer menu={footerMenu} />
+      <CookieBanner />
     </>
   );
 }

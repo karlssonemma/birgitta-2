@@ -10,7 +10,7 @@ const CookieBanner = () => {
         }
     }, [])
 
-    const handleClick = (e) => {
+    const handleClick = () => {
         setVisibility(false)
         localStorage.setItem("cookieSeen", "shown")
     }
@@ -29,7 +29,7 @@ const Accept = ({ handleClick }) => {
     return(
         <button 
             className="border-[1px] border-solid px-4 py-2" 
-            onClick={(e) => handleClick(e)}
+            onClick={() => handleClick()}
         >
             ok
         </button>

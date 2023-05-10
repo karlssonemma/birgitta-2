@@ -17,7 +17,7 @@ const CookieBanner = () => {
 
 
     return(
-        <div className={`${visibility ? "flex" : "hidden"} w-full h-auto bg-black sticky bottom-0 p-4 tracking-wider text-xs flex-row justify-between items-center`}>
+        <div className={`${visibility ? "flex" : "hidden"} w-full h-auto bg-black sticky bottom-0 p-4 tracking-wider text-xs flex-row justify-between items-center text-white`}>
             This website uses cookies. By continuing to browse this site you are agreeing to our use of cookies. 
             <Accept handleClick={handleClick} />
         </div>

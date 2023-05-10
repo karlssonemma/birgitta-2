@@ -4,7 +4,7 @@ import CloseIcon from "./CloseIcon";
 const CookieBanner = () => {
 
     return(
-        <div className="w-full h-auto bg-slate-400 sticky bottom-0 p-4 tracking-wider text-xs">
+        <div className="w-full h-auto bg-slate-400 sticky bottom-0 p-4 tracking-wider text-xs text-white">
             Cookiebanner
             <Accept />
         </div>

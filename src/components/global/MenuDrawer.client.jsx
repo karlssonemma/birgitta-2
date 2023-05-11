@@ -24,7 +24,7 @@ function MenuMobileNav({menu, onClose}) {
         </Link>
       ))}
       <Link 
-        to="/info'"
+        to="/info"
         onClick={onClose} 
         className="text-black p-4 lowercase tracking-wider hover:underline" 
         key={"infoPage"}
